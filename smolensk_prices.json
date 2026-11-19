@@ -1,0 +1,2195 @@
+{
+  "city": "Смоленск",
+  "coordinates": {
+    "lat": 54.782635,
+    "lon": 32.045287
+  },
+  "updatedAt": "2026-11-19T13:52:58.699275+00:00",
+  "liveOffersCount": 0,
+  "items": {
+    "oatmeal": {
+      "name": "Овсяные хлопья Геркулес",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 57,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "chizhik": {
+          "price": 54,
+          "oldPrice": 69,
+          "promo": true,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "liniya": {
+          "price": 64,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "magnit": {
+          "price": 67,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "pyaterochka": {
+          "price": 59,
+          "oldPrice": 75,
+          "promo": true,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "dixy": {
+          "price": 68,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "lenta": {
+          "price": 69,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "metro": {
+          "price": 70,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "perekrestok": {
+          "price": 73,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "lavka": {
+          "price": 78,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "vkusvill": {
+          "price": 84,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        },
+        "azbuka": {
+          "price": 101,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Овсяные хлопья Геркулес"
+        }
+      }
+    },
+    "milk": {
+      "name": "Молоко 2.5%",
+      "unit": "л",
+      "offers": {
+        "svetofor": {
+          "price": 72,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "chizhik": {
+          "price": 69,
+          "oldPrice": 82,
+          "promo": true,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "liniya": {
+          "price": 76,
+          "oldPrice": 90,
+          "promo": true,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "magnit": {
+          "price": 74,
+          "oldPrice": 89,
+          "promo": true,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "pyaterochka": {
+          "price": 85,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "dixy": {
+          "price": 86,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "lenta": {
+          "price": 88,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "metro": {
+          "price": 89,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "perekrestok": {
+          "price": 93,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "lavka": {
+          "price": 98,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "vkusvill": {
+          "price": 107,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        },
+        "azbuka": {
+          "price": 127,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Молоко 2.5%"
+        }
+      }
+    },
+    "eggs": {
+      "name": "Яйцо куриное С1",
+      "unit": "дес",
+      "offers": {
+        "svetofor": {
+          "price": 97,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "chizhik": {
+          "price": 94,
+          "oldPrice": 112,
+          "promo": true,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "liniya": {
+          "price": 108,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "magnit": {
+          "price": 113,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "pyaterochka": {
+          "price": 114,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "dixy": {
+          "price": 99,
+          "oldPrice": 119,
+          "promo": true,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "lenta": {
+          "price": 117,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "metro": {
+          "price": 118,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "perekrestok": {
+          "price": 124,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "lavka": {
+          "price": 131,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "vkusvill": {
+          "price": 143,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        },
+        "azbuka": {
+          "price": 170,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яйцо куриное С1"
+        }
+      }
+    },
+    "chicken_fillet": {
+      "name": "Филе грудки куриное",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 310,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "chizhik": {
+          "price": 325,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "liniya": {
+          "price": 325,
+          "oldPrice": 385,
+          "promo": true,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "magnit": {
+          "price": 362,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "pyaterochka": {
+          "price": 319,
+          "oldPrice": 379,
+          "promo": true,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "dixy": {
+          "price": 369,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "lenta": {
+          "price": 376,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "metro": {
+          "price": 380,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "perekrestok": {
+          "price": 399,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "lavka": {
+          "price": 421,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "vkusvill": {
+          "price": 458,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        },
+        "azbuka": {
+          "price": 546,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе грудки куриное"
+        }
+      }
+    },
+    "turkey_fillet": {
+      "name": "Филе индейки",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 411,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "chizhik": {
+          "price": 430,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "liniya": {
+          "price": 460,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "magnit": {
+          "price": 429,
+          "oldPrice": 499,
+          "promo": true,
+          "skuTitle": "Филе индейки"
+        },
+        "pyaterochka": {
+          "price": 484,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "dixy": {
+          "price": 489,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "lenta": {
+          "price": 439,
+          "oldPrice": 510,
+          "promo": true,
+          "skuTitle": "Филе индейки"
+        },
+        "metro": {
+          "price": 504,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "perekrestok": {
+          "price": 528,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "lavka": {
+          "price": 557,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "vkusvill": {
+          "price": 606,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        },
+        "azbuka": {
+          "price": 724,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Филе индейки"
+        }
+      }
+    },
+    "minced_beef": {
+      "name": "Фарш говяжий / домашний",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 370,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "chizhik": {
+          "price": 387,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "liniya": {
+          "price": 379,
+          "oldPrice": 449,
+          "promo": true,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "magnit": {
+          "price": 431,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "pyaterochka": {
+          "price": 436,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "dixy": {
+          "price": 389,
+          "oldPrice": 459,
+          "promo": true,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "lenta": {
+          "price": 449,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "metro": {
+          "price": 453,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "perekrestok": {
+          "price": 475,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "lavka": {
+          "price": 502,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "vkusvill": {
+          "price": 546,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        },
+        "azbuka": {
+          "price": 651,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Фарш говяжий / домашний"
+        }
+      }
+    },
+    "buckwheat": {
+      "name": "Крупа гречневая ядрица",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 66,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "chizhik": {
+          "price": 59,
+          "oldPrice": 76,
+          "promo": true,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "liniya": {
+          "price": 74,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "magnit": {
+          "price": 77,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "pyaterochka": {
+          "price": 64,
+          "oldPrice": 82,
+          "promo": true,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "dixy": {
+          "price": 79,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "lenta": {
+          "price": 81,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "metro": {
+          "price": 81,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "perekrestok": {
+          "price": 85,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "lavka": {
+          "price": 90,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "vkusvill": {
+          "price": 98,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        },
+        "azbuka": {
+          "price": 117,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Крупа гречневая ядрица"
+        }
+      }
+    },
+    "rice": {
+      "name": "Рис круглозерный / пропаренный",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 94,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "chizhik": {
+          "price": 84,
+          "oldPrice": 105,
+          "promo": true,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "liniya": {
+          "price": 105,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "magnit": {
+          "price": 89,
+          "oldPrice": 115,
+          "promo": true,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "pyaterochka": {
+          "price": 111,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "dixy": {
+          "price": 112,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "lenta": {
+          "price": 114,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "metro": {
+          "price": 115,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "perekrestok": {
+          "price": 121,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "lavka": {
+          "price": 128,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "vkusvill": {
+          "price": 139,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        },
+        "azbuka": {
+          "price": 166,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Рис круглозерный / пропаренный"
+        }
+      }
+    },
+    "pasta": {
+      "name": "Макароны из твёрдых сортов",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 80,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "chizhik": {
+          "price": 84,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "liniya": {
+          "price": 89,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "magnit": {
+          "price": 93,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "pyaterochka": {
+          "price": 72,
+          "oldPrice": 96,
+          "promo": true,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "dixy": {
+          "price": 75,
+          "oldPrice": 98,
+          "promo": true,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "lenta": {
+          "price": 97,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "metro": {
+          "price": 98,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "perekrestok": {
+          "price": 103,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "lavka": {
+          "price": 108,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "vkusvill": {
+          "price": 118,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        },
+        "azbuka": {
+          "price": 141,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Макароны из твёрдых сортов"
+        }
+      }
+    },
+    "potato": {
+      "name": "Картофель",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 35,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "chizhik": {
+          "price": 37,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "liniya": {
+          "price": 32,
+          "oldPrice": 44,
+          "promo": true,
+          "skuTitle": "Картофель"
+        },
+        "magnit": {
+          "price": 35,
+          "oldPrice": 45,
+          "promo": true,
+          "skuTitle": "Картофель"
+        },
+        "pyaterochka": {
+          "price": 42,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "dixy": {
+          "price": 42,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "lenta": {
+          "price": 43,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "metro": {
+          "price": 43,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "perekrestok": {
+          "price": 45,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "lavka": {
+          "price": 48,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "vkusvill": {
+          "price": 52,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        },
+        "azbuka": {
+          "price": 62,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Картофель"
+        }
+      }
+    },
+    "carrot": {
+      "name": "Морковь",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 33,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "chizhik": {
+          "price": 29,
+          "oldPrice": 38,
+          "promo": true,
+          "skuTitle": "Морковь"
+        },
+        "liniya": {
+          "price": 37,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "magnit": {
+          "price": 38,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "pyaterochka": {
+          "price": 31,
+          "oldPrice": 41,
+          "promo": true,
+          "skuTitle": "Морковь"
+        },
+        "dixy": {
+          "price": 39,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "lenta": {
+          "price": 40,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "metro": {
+          "price": 40,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "perekrestok": {
+          "price": 42,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "lavka": {
+          "price": 44,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "vkusvill": {
+          "price": 48,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        },
+        "azbuka": {
+          "price": 58,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Морковь"
+        }
+      }
+    },
+    "onion": {
+      "name": "Лук репчатый",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 32,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "chizhik": {
+          "price": 33,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "liniya": {
+          "price": 28,
+          "oldPrice": 39,
+          "promo": true,
+          "skuTitle": "Лук репчатый"
+        },
+        "magnit": {
+          "price": 37,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "pyaterochka": {
+          "price": 38,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "dixy": {
+          "price": 30,
+          "oldPrice": 40,
+          "promo": true,
+          "skuTitle": "Лук репчатый"
+        },
+        "lenta": {
+          "price": 39,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "metro": {
+          "price": 39,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "perekrestok": {
+          "price": 41,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "lavka": {
+          "price": 43,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "vkusvill": {
+          "price": 47,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        },
+        "azbuka": {
+          "price": 56,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Лук репчатый"
+        }
+      }
+    },
+    "cabbage": {
+      "name": "Капуста белокочанная",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 30,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "chizhik": {
+          "price": 26,
+          "oldPrice": 35,
+          "promo": true,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "liniya": {
+          "price": 34,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "magnit": {
+          "price": 27,
+          "oldPrice": 37,
+          "promo": true,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "pyaterochka": {
+          "price": 36,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "dixy": {
+          "price": 36,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "lenta": {
+          "price": 37,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "metro": {
+          "price": 37,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "perekrestok": {
+          "price": 39,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "lavka": {
+          "price": 41,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "vkusvill": {
+          "price": 45,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        },
+        "azbuka": {
+          "price": 53,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Капуста белокочанная"
+        }
+      }
+    },
+    "tomato": {
+      "name": "Томаты свежие",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 159,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "chizhik": {
+          "price": 166,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "liniya": {
+          "price": 155,
+          "oldPrice": 199,
+          "promo": true,
+          "skuTitle": "Томаты свежие"
+        },
+        "magnit": {
+          "price": 185,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "pyaterochka": {
+          "price": 149,
+          "oldPrice": 195,
+          "promo": true,
+          "skuTitle": "Томаты свежие"
+        },
+        "dixy": {
+          "price": 189,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "lenta": {
+          "price": 193,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "metro": {
+          "price": 195,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "perekrestok": {
+          "price": 204,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "lavka": {
+          "price": 215,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "vkusvill": {
+          "price": 234,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        },
+        "azbuka": {
+          "price": 280,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Томаты свежие"
+        }
+      }
+    },
+    "cucumber": {
+      "name": "Огурцы свежие",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 134,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "chizhik": {
+          "price": 140,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "liniya": {
+          "price": 149,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "magnit": {
+          "price": 129,
+          "oldPrice": 165,
+          "promo": true,
+          "skuTitle": "Огурцы свежие"
+        },
+        "pyaterochka": {
+          "price": 157,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "dixy": {
+          "price": 134,
+          "oldPrice": 169,
+          "promo": true,
+          "skuTitle": "Огурцы свежие"
+        },
+        "lenta": {
+          "price": 162,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "metro": {
+          "price": 164,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "perekrestok": {
+          "price": 172,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "lavka": {
+          "price": 181,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "vkusvill": {
+          "price": 197,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        },
+        "azbuka": {
+          "price": 235,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Огурцы свежие"
+        }
+      }
+    },
+    "cottage_cheese": {
+      "name": "Творог 5%",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 302,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "chizhik": {
+          "price": 295,
+          "oldPrice": 350,
+          "promo": true,
+          "skuTitle": "Творог 5%"
+        },
+        "liniya": {
+          "price": 338,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "magnit": {
+          "price": 353,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "pyaterochka": {
+          "price": 356,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "dixy": {
+          "price": 360,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "lenta": {
+          "price": 367,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "metro": {
+          "price": 371,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "perekrestok": {
+          "price": 389,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "lavka": {
+          "price": 410,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        },
+        "vkusvill": {
+          "price": 335,
+          "oldPrice": 395,
+          "promo": true,
+          "skuTitle": "Творог 5%"
+        },
+        "azbuka": {
+          "price": 533,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Творог 5%"
+        }
+      }
+    },
+    "cheese": {
+      "name": "Сыр полутвёрдый 45%",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 622,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "chizhik": {
+          "price": 651,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "liniya": {
+          "price": 696,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "magnit": {
+          "price": 725,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "pyaterochka": {
+          "price": 629,
+          "oldPrice": 759,
+          "promo": true,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "dixy": {
+          "price": 740,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "lenta": {
+          "price": 599,
+          "oldPrice": 760,
+          "promo": true,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "metro": {
+          "price": 762,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "perekrestok": {
+          "price": 799,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "lavka": {
+          "price": 844,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "vkusvill": {
+          "price": 918,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        },
+        "azbuka": {
+          "price": 1095,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сыр полутвёрдый 45%"
+        }
+      }
+    },
+    "sour_cream": {
+      "name": "Сметана 15%",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 223,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "chizhik": {
+          "price": 233,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "liniya": {
+          "price": 219,
+          "oldPrice": 275,
+          "promo": true,
+          "skuTitle": "Сметана 15%"
+        },
+        "magnit": {
+          "price": 215,
+          "oldPrice": 269,
+          "promo": true,
+          "skuTitle": "Сметана 15%"
+        },
+        "pyaterochka": {
+          "price": 262,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "dixy": {
+          "price": 265,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "lenta": {
+          "price": 270,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "metro": {
+          "price": 273,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "perekrestok": {
+          "price": 286,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "lavka": {
+          "price": 302,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "vkusvill": {
+          "price": 329,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        },
+        "azbuka": {
+          "price": 392,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Сметана 15%"
+        }
+      }
+    },
+    "butter": {
+      "name": "Масло сливочное 82.5%",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 823,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "chizhik": {
+          "price": 820,
+          "oldPrice": 960,
+          "promo": true,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "liniya": {
+          "price": 921,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "magnit": {
+          "price": 960,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "pyaterochka": {
+          "price": 970,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "dixy": {
+          "price": 849,
+          "oldPrice": 990,
+          "promo": true,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "lenta": {
+          "price": 1000,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "metro": {
+          "price": 1009,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "perekrestok": {
+          "price": 1058,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "lavka": {
+          "price": 1117,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "vkusvill": {
+          "price": 1215,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        },
+        "azbuka": {
+          "price": 1450,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло сливочное 82.5%"
+        }
+      }
+    },
+    "sunflower_oil": {
+      "name": "Масло подсолнечное",
+      "unit": "л",
+      "offers": {
+        "svetofor": {
+          "price": 113,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "chizhik": {
+          "price": 104,
+          "oldPrice": 129,
+          "promo": true,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "liniya": {
+          "price": 127,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "magnit": {
+          "price": 132,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "pyaterochka": {
+          "price": 109,
+          "oldPrice": 139,
+          "promo": true,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "dixy": {
+          "price": 135,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "lenta": {
+          "price": 138,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "metro": {
+          "price": 139,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "perekrestok": {
+          "price": 146,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "lavka": {
+          "price": 154,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "vkusvill": {
+          "price": 167,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        },
+        "azbuka": {
+          "price": 200,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Масло подсолнечное"
+        }
+      }
+    },
+    "bread": {
+      "name": "Хлеб пшеничный / нарезной",
+      "unit": "шт",
+      "offers": {
+        "svetofor": {
+          "price": 44,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "chizhik": {
+          "price": 46,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "liniya": {
+          "price": 41,
+          "oldPrice": 52,
+          "promo": true,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "magnit": {
+          "price": 43,
+          "oldPrice": 54,
+          "promo": true,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "pyaterochka": {
+          "price": 51,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "dixy": {
+          "price": 52,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "lenta": {
+          "price": 53,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "metro": {
+          "price": 54,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "perekrestok": {
+          "price": 56,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "lavka": {
+          "price": 59,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "vkusvill": {
+          "price": 64,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        },
+        "azbuka": {
+          "price": 77,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Хлеб пшеничный / нарезной"
+        }
+      }
+    },
+    "banana": {
+      "name": "Бананы",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 117,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "chizhik": {
+          "price": 114,
+          "oldPrice": 135,
+          "promo": true,
+          "skuTitle": "Бананы"
+        },
+        "liniya": {
+          "price": 131,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "magnit": {
+          "price": 136,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "pyaterochka": {
+          "price": 119,
+          "oldPrice": 142,
+          "promo": true,
+          "skuTitle": "Бананы"
+        },
+        "dixy": {
+          "price": 139,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "lenta": {
+          "price": 142,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "metro": {
+          "price": 143,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "perekrestok": {
+          "price": 150,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "lavka": {
+          "price": 158,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "vkusvill": {
+          "price": 172,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        },
+        "azbuka": {
+          "price": 206,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Бананы"
+        }
+      }
+    },
+    "apple": {
+      "name": "Яблоки сезонные",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 100,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "chizhik": {
+          "price": 105,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "liniya": {
+          "price": 89,
+          "oldPrice": 119,
+          "promo": true,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "magnit": {
+          "price": 94,
+          "oldPrice": 124,
+          "promo": true,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "pyaterochka": {
+          "price": 118,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "dixy": {
+          "price": 119,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "lenta": {
+          "price": 121,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "metro": {
+          "price": 123,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "perekrestok": {
+          "price": 129,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "lavka": {
+          "price": 136,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "vkusvill": {
+          "price": 148,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        },
+        "azbuka": {
+          "price": 176,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Яблоки сезонные"
+        }
+      }
+    },
+    "pollock": {
+      "name": "Минтай филе / тушка",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 234,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "chizhik": {
+          "price": 246,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "liniya": {
+          "price": 262,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "magnit": {
+          "price": 229,
+          "oldPrice": 285,
+          "promo": true,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "pyaterochka": {
+          "price": 276,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "dixy": {
+          "price": 279,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "lenta": {
+          "price": 235,
+          "oldPrice": 290,
+          "promo": true,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "metro": {
+          "price": 287,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "perekrestok": {
+          "price": 301,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "lavka": {
+          "price": 318,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "vkusvill": {
+          "price": 346,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        },
+        "azbuka": {
+          "price": 413,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Минтай филе / тушка"
+        }
+      }
+    },
+    "salmon": {
+      "name": "Форель / сёмга стейк",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 1168,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "chizhik": {
+          "price": 1223,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "liniya": {
+          "price": 1307,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "magnit": {
+          "price": 1362,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "pyaterochka": {
+          "price": 1376,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "dixy": {
+          "price": 1390,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "lenta": {
+          "price": 1149,
+          "oldPrice": 1420,
+          "promo": true,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "metro": {
+          "price": 1179,
+          "oldPrice": 1450,
+          "promo": true,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "perekrestok": {
+          "price": 1501,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "lavka": {
+          "price": 1585,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "vkusvill": {
+          "price": 1724,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        },
+        "azbuka": {
+          "price": 2057,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Форель / сёмга стейк"
+        }
+      }
+    },
+    "lentils": {
+      "name": "Чечевица красная",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 139,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "chizhik": {
+          "price": 145,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "liniya": {
+          "price": 155,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "magnit": {
+          "price": 162,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "pyaterochka": {
+          "price": 132,
+          "oldPrice": 169,
+          "promo": true,
+          "skuTitle": "Чечевица красная"
+        },
+        "dixy": {
+          "price": 165,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "lenta": {
+          "price": 168,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "metro": {
+          "price": 170,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "perekrestok": {
+          "price": 178,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "lavka": {
+          "price": 188,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        },
+        "vkusvill": {
+          "price": 149,
+          "oldPrice": 185,
+          "promo": true,
+          "skuTitle": "Чечевица красная"
+        },
+        "azbuka": {
+          "price": 244,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Чечевица красная"
+        }
+      }
+    },
+    "tofu": {
+      "name": "Тофу классический",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 386,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "chizhik": {
+          "price": 405,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "liniya": {
+          "price": 432,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "magnit": {
+          "price": 451,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "pyaterochka": {
+          "price": 455,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "dixy": {
+          "price": 460,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "lenta": {
+          "price": 469,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "metro": {
+          "price": 474,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "perekrestok": {
+          "price": 399,
+          "oldPrice": 479,
+          "promo": true,
+          "skuTitle": "Тофу классический"
+        },
+        "lavka": {
+          "price": 524,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        },
+        "vkusvill": {
+          "price": 389,
+          "oldPrice": 465,
+          "promo": true,
+          "skuTitle": "Тофу классический"
+        },
+        "azbuka": {
+          "price": 681,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Тофу классический"
+        }
+      }
+    },
+    "mushrooms": {
+      "name": "Шампиньоны свежие",
+      "unit": "кг",
+      "offers": {
+        "svetofor": {
+          "price": 239,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "chizhik": {
+          "price": 251,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "liniya": {
+          "price": 235,
+          "oldPrice": 295,
+          "promo": true,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "magnit": {
+          "price": 229,
+          "oldPrice": 289,
+          "promo": true,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "pyaterochka": {
+          "price": 282,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "dixy": {
+          "price": 285,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "lenta": {
+          "price": 291,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "metro": {
+          "price": 294,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "perekrestok": {
+          "price": 308,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "lavka": {
+          "price": 325,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "vkusvill": {
+          "price": 353,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        },
+        "azbuka": {
+          "price": 422,
+          "oldPrice": null,
+          "promo": false,
+          "skuTitle": "Шампиньоны свежие"
+        }
+      }
+    }
+  }
+}
