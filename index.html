@@ -1,0 +1,3666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Лёгкость — Рацион на семью и выгодные покупки (Смоленск)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF6F0;
+      --card-bg: #FFFFFF;
+      --accent: #F58220;
+      --accent-dark: #E06D0B;
+      --accent-soft: #FFF3E8;
+      --accent-border: #F8B174;
+      --text-main: #1F1D1A;
+      --text-muted: #78736C;
+      --border-light: #EFECE6;
+      --green-bg: #ECF8F0;
+      --green-text: #1E7E43;
+      --green-border: #BFE5CC;
+      --red-bg: #FEF0EF;
+      --red-text: #D93829;
+      --shadow-card: 0 4px 16px rgba(31, 29, 26, 0.04);
+      --shadow-btn: 0 8px 20px rgba(245, 130, 32, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #EFEAE2;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Мобильный контейнер */
+    .app-shell {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      background-color: var(--bg-cream);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+      overflow-x: hidden;
+    }
+
+    /* Шапка квиза */
+    .quiz-header {
+      padding: 14px 18px 8px;
+      background: var(--bg-cream);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .btn-back {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-back:active {
+      transform: scale(0.92);
+    }
+
+    .btn-back.hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .city-pill {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* 9-сегментный прогресс-бар */
+    .progress-segments {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .segment {
+      height: 4px;
+      border-radius: 99px;
+      background: #E5DFD6;
+      transition: background-color 0.25s ease;
+    }
+
+    .segment.active {
+      background: var(--accent);
+    }
+
+    .step-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Основной контент шага */
+    .step-body {
+      flex: 1;
+      padding: 8px 18px 104px;
+      animation: fadeSlide 0.24s ease;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-title {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 4px 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-subtitle {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--text-muted);
+      margin: 0 0 18px;
+    }
+
+    /* Сетка карточек (Магазины, Аллергии, Кухня) */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .select-card {
+      background: var(--card-bg);
+      border: 1.5px solid transparent;
+      border-radius: 16px;
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      transition: all 0.16s ease;
+      user-select: none;
+    }
+
+    .select-card:active {
+      transform: scale(0.96);
+    }
+
+    .select-card.selected {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .select-card.selected .card-label {
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .check-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .select-card.selected .check-badge {
+      display: flex;
+    }
+
+    .store-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .card-emoji {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-main);
+    }
+
+    .card-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.25;
+    }
+
+    /* Белые блоки-карточки */
+    .white-box {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 12px;
+    }
+
+    .section-caption {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 14px 0 8px;
+    }
+
+    /* Счётчик взрослых и детей (Шаг 2) */
+    .counter-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 10px 0 12px;
+    }
+
+    .round-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.12s ease;
+    }
+
+    .round-btn:active {
+      transform: scale(0.9);
+    }
+
+    .big-number {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--accent);
+      min-width: 42px;
+      text-align: center;
+    }
+
+    /* Переключатель (Switch) */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .switch {
+      width: 50px;
+      height: 28px;
+      border-radius: 99px;
+      background: #E2DDD5;
+      position: relative;
+      transition: background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .switch.on {
+      background: linear-gradient(90deg, #F89B3C, #F58220);
+    }
+
+    .switch-knob {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .switch.on .switch-knob {
+      transform: translateX(22px);
+    }
+
+    .child-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .child-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .age-stepper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-cream);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .mini-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: none;
+      background: #fff;
+      color: var(--text-main);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .remove-child-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: var(--red-bg);
+      color: var(--red-text);
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+
+    .add-child-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+
+    .add-child-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .info-banner {
+      background: #F4EFE8;
+      border-left: 3px solid var(--accent);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    /* Чекбоксы приёмов пищи (Шаг 4) */
+    .meal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+    }
+
+    .meal-row:last-child {
+      border-bottom: none;
+    }
+
+    .checkbox-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 2px solid #DCD6CC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.15s ease;
+    }
+
+    .checkbox-box.checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Слайдер бюджета (Шаг 5) */
+    .budget-display {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    .budget-value-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px dashed #DDD6CC;
+      padding-bottom: 4px;
+      cursor: pointer;
+    }
+
+    .budget-amount {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .budget-input-inline {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      width: 150px;
+      text-align: center;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      background: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+
+    input[type="range"].custom-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 99px;
+      background: #E7E0D6;
+      outline: none;
+      margin: 14px 0 8px;
+    }
+
+    input[type="range"].custom-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid var(--accent);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .budget-status-card {
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .budget-status-card.good {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+      color: var(--green-text);
+    }
+
+    .budget-status-card.tight {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-dark);
+    }
+
+    /* Вкусовая карта — свайп-карточки (Шаг 9) */
+    .swipe-arena {
+      position: relative;
+      height: 330px;
+      margin: 10px 0 14px;
+      touch-action: pan-y;
+    }
+
+    .dish-card {
+      position: absolute;
+      inset: 0;
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 28px rgba(31, 29, 26, 0.08);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      user-select: none;
+      cursor: grab;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+    }
+
+    .dish-card.dragging {
+      transition: none;
+      cursor: grabbing;
+    }
+
+    .swipe-stamp {
+      position: absolute;
+      top: 20px;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .stamp-like {
+      left: 18px;
+      color: var(--green-text);
+      border: 3px solid var(--green-text);
+      background: rgba(236, 248, 240, 0.92);
+      transform: rotate(-10deg);
+    }
+
+    .stamp-nope {
+      right: 18px;
+      color: var(--red-text);
+      border: 3px solid var(--red-text);
+      background: rgba(254, 240, 239, 0.92);
+      transform: rotate(10deg);
+    }
+
+    .dish-visual {
+      height: 120px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #FFF5EB 0%, #FDE6D0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .dish-emoji-big {
+      font-size: 56px;
+      line-height: 1;
+    }
+
+    .meal-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .price-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .swipe-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 6px;
+    }
+
+    .swipe-btn {
+      flex: 1;
+      max-width: 155px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.12s ease;
+    }
+
+    .swipe-btn:active {
+      transform: scale(0.95);
+    }
+
+    .swipe-btn.nope {
+      background: var(--red-bg);
+      color: var(--red-text);
+    }
+
+    .swipe-btn.like {
+      background: var(--green-bg);
+      color: var(--green-text);
+    }
+
+    .taste-ready-box {
+      border: 2px dashed var(--accent-border);
+      background: var(--accent-soft);
+      border-radius: 22px;
+      padding: 28px 20px;
+      text-align: center;
+      margin: 12px 0;
+    }
+
+    /* Нижняя фиксированная кнопка «Далее >» */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      padding: 12px 18px 18px;
+      background: linear-gradient(to top, var(--bg-cream) 75%, rgba(250, 246, 240, 0));
+      z-index: 25;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(90deg, #F89D42 0%, #F47A1F 100%);
+      color: #1F1D1A;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Уведомление-тост вместо alert() */
+    .toast {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-80px);
+      background: #1F1D1A;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.25s ease;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Экран результатов */
+    .tabs-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #ECE6DC;
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+    }
+
+    .tab-btn {
+      padding: 10px;
+      border: none;
+      border-radius: 11px;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn.active {
+      background: #FFFFFF;
+      color: var(--text-main);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .days-scroller {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+
+    .days-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .day-pill {
+      padding: 8px 13px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1.5px solid transparent;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .day-pill.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .promo-badge {
+      display: inline-block;
+      background: #FF3B30;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 4px;
+    }
+
+    .swap-btn {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-dark);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Модальное окно импорта JSON */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(31, 29, 26, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 90;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 20px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .json-textarea {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-light);
+      padding: 10px;
+      font-family: monospace;
+      font-size: 11px;
+      resize: vertical;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell" id="app"></div>
+  <div class="toast" id="toast"></div>
+
+  <!-- Модальное окно загрузки JSON цен Смоленска -->
+  <div class="modal-backdrop" id="jsonModal">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h3 style="margin:0;font-size:17px;font-weight:800;">Прайс-лист магазинов Смоленска</h3>
+        <button onclick="closeJsonModal()" style="border:none;background:#f3efe8;width:30px;height:30px;border-radius:50%;font-weight:700;cursor:pointer;">✕</button>
+      </div>
+      <p style="font-size:12px;color:var(--text-muted);margin:0 0 8px;line-height:1.4;">
+        Вставьте актуальный JSON от Python-парсера (формат: <code>{ "product_id": { "store_id": { "price": 120, "promoPrice": 89 } } }</code>) или загрузите файл. Корзина и меню пересчитаются мгновенно.
+      </p>
+      <input type="file" id="jsonFileInput" accept=".json" onchange="handleJsonFile(event)" style="font-size:12px;margin-bottom:6px;" />
+      <textarea id="jsonInputArea" class="json-textarea" placeholder='{"chicken_fillet": {"pyaterochka": {"price": 349, "promoPrice": 269}}}'></textarea>
+      <div style="display:flex;gap:8px;">
+        <button onclick="applyCustomJson()" class="btn-primary" style="padding:12px;font-size:14px;">Применить цены</button>
+        <button onclick="resetDefaultPrices()" style="padding:12px 14px;border-radius:14px;border:1px solid var(--border-light);background:#fff;font-weight:600;font-size:13px;cursor:pointer;">Сброс</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================================
+       1. СПРАВОЧНИКИ ДАННЫХ (МАГАЗИНЫ СМОЛЕНСКА, АЛЛЕРГИИ, ТЕХНИКА)
+       ============================================================================ */
+    const SMOLENSK_STORES = [
+      { id: 'magnit', name: 'Магнит', short: 'М', bg: '#E31E24', color: '#FFF' },
+      { id: 'pyaterochka', name: 'Пятёрочка', short: '5', bg: '#2BA84A', color: '#FFF' },
+      { id: 'dixy', name: 'Дикси', short: 'Д', bg: '#F58220', color: '#FFF' },
+      { id: 'chizhik', name: 'Чижик', short: '🐤', bg: '#FFD600', color: '#1F1D1A' },
+      { id: 'svetofor', name: 'Светофор', short: '🚦', bg: '#E53935', color: '#FFF' },
+      { id: 'perekrestok', name: 'Перекрёсток', short: '🍀', bg: '#1B6B38', color: '#FFF' },
+      { id: 'lenta', name: 'Лента', short: '🌻', bg: '#005AA9', color: '#FFD600' },
+      { id: 'auchan', name: 'Ашан', short: '🦅', bg: '#D61F26', color: '#FFF' },
+      { id: 'metro', name: 'Метро', short: 'METRO', bg: '#003B73', color: '#FFD600' },
+      { id: 'vkusvill', name: 'ВкусВилл', short: 'BB', bg: '#32A852', color: '#FFF' },
+      { id: 'liniya', name: 'Линия', short: 'Л', bg: '#D9272E', color: '#FFF' },
+      { id: 'lavka', name: 'Яндекс Лавка', short: '💙', bg: '#00A8FF', color: '#FFF' }
+    ];
+
+    const ALLERGIES_LIST = [
+      { id: 'nuts', label: 'Орехи', emoji: '🌰' },
+      { id: 'gluten', label: 'Глютен', emoji: '🌾' },
+      { id: 'lactose', label: 'Лактоза', emoji: '🥛' },
+      { id: 'peanut', label: 'Арахис', emoji: '🥜' },
+      { id: 'seafood', label: 'Морепродукты', emoji: '🦐' },
+      { id: 'eggs', label: 'Яйца', emoji: '🥚' },
+      { id: 'honey', label: 'Мёд', emoji: '🍯' },
+      { id: 'soy', label: 'Соя', emoji: '🫘' },
+      { id: 'fish', label: 'Рыба', emoji: '🐟' },
+      { id: 'citrus', label: 'Цитрусовые', emoji: '🍊' },
+      { id: 'sesame', label: 'Кунжут', emoji: '🥯' }
+    ];
+
+    const DISLIKES_LIST = [
+      { id: 'mushrooms', label: 'Грибы', emoji: '🍄' },
+      { id: 'onion', label: 'Лук', emoji: '🧅' },
+      { id: 'garlic', label: 'Чеснок', emoji: '🧄' },
+      { id: 'olives', label: 'Оливки', emoji: '🫒' },
+      { id: 'eggplant', label: 'Баклажаны', emoji: '🍆' },
+      { id: 'cilantro', label: 'Кинза', emoji: '🌿' },
+      { id: 'spicy', label: 'Острое', emoji: '🌶️' },
+      { id: 'sugar', label: 'Сахар', emoji: '🍬' },
+      { id: 'pork', label: 'Свинина', emoji: '🥓' },
+      { id: 'red_meat', label: 'Красное мясо', emoji: '🥩' },
+      { id: 'caffeine', label: 'Кофеин', emoji: '☕' },
+      { id: 'tofu', label: 'Тофу', emoji: '🧊' }
+    ];
+
+    const APPLIANCES_LIST = [
+      { id: 'stove', label: 'Плита', emoji: '🔥' },
+      { id: 'oven', label: 'Духовка', emoji: '🥧' },
+      { id: 'microwave', label: 'Микроволновка', emoji: '⏲️' },
+      { id: 'multicooker', label: 'Мультиварка', emoji: '🍲' },
+      { id: 'airfryer', label: 'Аэрогриль', emoji: '🌀' },
+      { id: 'blender', label: 'Блендер', emoji: '🥤' },
+      { id: 'steamer', label: 'Пароварка', emoji: '♨️' },
+      { id: 'grill_pan', label: 'Сковорода-гриль', emoji: '🍳' }
+    ];
+
+    /* ============================================================================
+       2. БАЗА АКТУАЛЬНЫХ ЦЕН И АКЦИЙ ПО МАГАЗИНАМ СМОЛЕНСКА
+       packSize — размер стандартной упаковки в граммах / мл / шт
+       ============================================================================ */
+    const DEFAULT_SMOLENSK_PRICES = {
+      oats: {
+        name: 'Овсяные хлопья Геркулес', category: 'Бакалея', unit: 'г', packSize: 500,
+        prices: {
+          chizhik: { price: 49, promoPrice: null },
+          pyaterochka: { price: 69, promoPrice: 52 },
+          magnit: { price: 72, promoPrice: 55 },
+          dixy: { price: 68, promoPrice: null },
+          liniya: { price: 64, promoPrice: 49 },
+          lenta: { price: 75, promoPrice: 54 },
+          perekrestok: { price: 85, promoPrice: 65 },
+          vkusvill: { price: 96, promoPrice: null },
+          auchan: { price: 62, promoPrice: 48 },
+          metro: { price: 65, promoPrice: null },
+          svetofor: { price: 44, promoPrice: null },
+          lavka: { price: 89, promoPrice: 69 }
+        }
+      },
+      milk: {
+        name: 'Молоко 2.5% (Смоленское / ферм.)', category: 'Молочное', unit: 'мл', packSize: 930,
+        prices: {
+          chizhik: { price: 69, promoPrice: null },
+          pyaterochka: { price: 86, promoPrice: 69 },
+          magnit: { price: 89, promoPrice: 71 },
+          dixy: { price: 85, promoPrice: 68 },
+          liniya: { price: 79, promoPrice: 65 },
+          lenta: { price: 88, promoPrice: 67 },
+          perekrestok: { price: 95, promoPrice: 76 },
+          vkusvill: { price: 98, promoPrice: 82 },
+          auchan: { price: 82, promoPrice: 66 },
+          metro: { price: 84, promoPrice: null },
+          svetofor: { price: 62, promoPrice: null },
+          lavka: { price: 99, promoPrice: 79 }
+        }
+      },
+      eggs: {
+        name: 'Яйцо куриное С1 (10 шт)', category: 'Молочное и яйца', unit: 'шт', packSize: 10,
+        prices: {
+          chizhik: { price: 99, promoPrice: null },
+          pyaterochka: { price: 119, promoPrice: 95 },
+          magnit: { price: 122, promoPrice: 98 },
+          dixy: { price: 118, promoPrice: 96 },
+          liniya: { price: 112, promoPrice: 92 },
+          lenta: { price: 125, promoPrice: 94 },
+          perekrestok: { price: 132, promoPrice: 105 },
+          vkusvill: { price: 148, promoPrice: null },
+          auchan: { price: 115, promoPrice: 93 },
+          metro: { price: 118, promoPrice: null },
+          svetofor: { price: 89, promoPrice: null },
+          lavka: { price: 139, promoPrice: 109 }
+        }
+      },
+      tvorog: {
+        name: 'Творог 5% (пачка)', category: 'Молочное', unit: 'г', packSize: 200,
+        prices: {
+          chizhik: { price: 64, promoPrice: null },
+          pyaterochka: { price: 84, promoPrice: 64 },
+          magnit: { price: 86, promoPrice: 66 },
+          dixy: { price: 82, promoPrice: 65 },
+          liniya: { price: 78, promoPrice: 61 },
+          lenta: { price: 88, promoPrice: 63 },
+          perekrestok: { price: 94, promoPrice: 72 },
+          vkusvill: { price: 105, promoPrice: 88 },
+          auchan: { price: 79, promoPrice: 62 },
+          metro: { price: 80, promoPrice: null },
+          svetofor: { price: 58, promoPrice: null },
+          lavka: { price: 99, promoPrice: 79 }
+        }
+      },
+      cheese: {
+        name: 'Сыр Российский / Тильзитер', category: 'Молочное', unit: 'г', packSize: 200,
+        prices: {
+          chizhik: { price: 139, promoPrice: null },
+          pyaterochka: { price: 179, promoPrice: 135 },
+          magnit: { price: 185, promoPrice: 139 },
+          dixy: { price: 175, promoPrice: 138 },
+          liniya: { price: 169, promoPrice: 129 },
+          lenta: { price: 189, promoPrice: 134 },
+          perekrestok: { price: 205, promoPrice: 155 },
+          vkusvill: { price: 235, promoPrice: 189 },
+          auchan: { price: 172, promoPrice: 132 },
+          metro: { price: 168, promoPrice: null },
+          svetofor: { price: 125, promoPrice: null },
+          lavka: { price: 215, promoPrice: 169 }
+        }
+      },
+      butter: {
+        name: 'Масло сливочное 82.5%', category: 'Молочное', unit: 'г', packSize: 180,
+        prices: {
+          chizhik: { price: 149, promoPrice: null },
+          pyaterochka: { price: 189, promoPrice: 145 },
+          magnit: { price: 192, promoPrice: 149 },
+          dixy: { price: 185, promoPrice: 148 },
+          liniya: { price: 179, promoPrice: 139 },
+          lenta: { price: 195, promoPrice: 144 },
+          perekrestok: { price: 210, promoPrice: 165 },
+          vkusvill: { price: 238, promoPrice: null },
+          auchan: { price: 182, promoPrice: 142 },
+          metro: { price: 178, promoPrice: null },
+          svetofor: { price: 135, promoPrice: null },
+          lavka: { price: 219, promoPrice: 175 }
+        }
+      },
+      chicken_fillet: {
+        name: 'Филе грудки цыплёнка охл.', category: 'Мясо и птица', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 329, promoPrice: null },
+          pyaterochka: { price: 379, promoPrice: 299 },
+          magnit: { price: 385, promoPrice: 309 },
+          dixy: { price: 375, promoPrice: 305 },
+          liniya: { price: 359, promoPrice: 289 },
+          lenta: { price: 389, promoPrice: 295 },
+          perekrestok: { price: 410, promoPrice: 329 },
+          vkusvill: { price: 465, promoPrice: 389 },
+          auchan: { price: 365, promoPrice: 292 },
+          metro: { price: 349, promoPrice: null },
+          svetofor: { price: 295, promoPrice: null },
+          lavka: { price: 429, promoPrice: 349 }
+        }
+      },
+      chicken_thigh: {
+        name: 'Бедро куриное без кости', category: 'Мясо и птица', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 319, promoPrice: null },
+          pyaterochka: { price: 369, promoPrice: 289 },
+          magnit: { price: 372, promoPrice: 295 },
+          dixy: { price: 365, promoPrice: 292 },
+          liniya: { price: 349, promoPrice: 279 },
+          lenta: { price: 379, promoPrice: 285 },
+          perekrestok: { price: 395, promoPrice: 319 },
+          vkusvill: { price: 445, promoPrice: null },
+          auchan: { price: 355, promoPrice: 284 },
+          metro: { price: 339, promoPrice: null },
+          svetofor: { price: 285, promoPrice: null },
+          lavka: { price: 415, promoPrice: 335 }
+        }
+      },
+      turkey_fillet: {
+        name: 'Филе грудки индейки', category: 'Мясо и птица', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 439, promoPrice: null },
+          pyaterochka: { price: 499, promoPrice: 399 },
+          magnit: { price: 509, promoPrice: 409 },
+          dixy: { price: 495, promoPrice: 405 },
+          liniya: { price: 479, promoPrice: 389 },
+          lenta: { price: 515, promoPrice: 395 },
+          perekrestok: { price: 539, promoPrice: 429 },
+          vkusvill: { price: 590, promoPrice: 489 },
+          auchan: { price: 485, promoPrice: 392 },
+          metro: { price: 469, promoPrice: null },
+          svetofor: { price: 399, promoPrice: null },
+          lavka: { price: 549, promoPrice: 449 }
+        }
+      },
+      minced_beef: {
+        name: 'Фарш домашний (говядина/свинина)', category: 'Мясо и птица', unit: 'г', packSize: 400,
+        prices: {
+          chizhik: { price: 159, promoPrice: null },
+          pyaterochka: { price: 199, promoPrice: 149 },
+          magnit: { price: 205, promoPrice: 155 },
+          dixy: { price: 195, promoPrice: 152 },
+          liniya: { price: 185, promoPrice: 142 },
+          lenta: { price: 209, promoPrice: 148 },
+          perekrestok: { price: 219, promoPrice: 169 },
+          vkusvill: { price: 255, promoPrice: null },
+          auchan: { price: 189, promoPrice: 145 },
+          metro: { price: 179, promoPrice: null },
+          svetofor: { price: 139, promoPrice: null },
+          lavka: { price: 229, promoPrice: 179 }
+        }
+      },
+      pollock: {
+        name: 'Филе минтая / трески зам.', category: 'Рыба', unit: 'г', packSize: 600,
+        prices: {
+          chizhik: { price: 199, promoPrice: null },
+          pyaterochka: { price: 249, promoPrice: 189 },
+          magnit: { price: 255, promoPrice: 195 },
+          dixy: { price: 245, promoPrice: 192 },
+          liniya: { price: 235, promoPrice: 179 },
+          lenta: { price: 259, promoPrice: 185 },
+          perekrestok: { price: 279, promoPrice: 215 },
+          vkusvill: { price: 325, promoPrice: 269 },
+          auchan: { price: 239, promoPrice: 184 },
+          metro: { price: 229, promoPrice: null },
+          svetofor: { price: 175, promoPrice: null },
+          lavka: { price: 289, promoPrice: 229 }
+        }
+      },
+      salmon: {
+        name: 'Стейк форели / горбуши', category: 'Рыба', unit: 'г', packSize: 500,
+        prices: {
+          chizhik: { price: 349, promoPrice: null },
+          pyaterochka: { price: 429, promoPrice: 329 },
+          magnit: { price: 439, promoPrice: 339 },
+          dixy: { price: 419, promoPrice: 335 },
+          liniya: { price: 399, promoPrice: 315 },
+          lenta: { price: 445, promoPrice: 325 },
+          perekrestok: { price: 469, promoPrice: 369 },
+          vkusvill: { price: 540, promoPrice: 449 },
+          auchan: { price: 410, promoPrice: 320 },
+          metro: { price: 395, promoPrice: null },
+          svetofor: { price: 310, promoPrice: null },
+          lavka: { price: 489, promoPrice: 389 }
+        }
+      },
+      buckwheat: {
+        name: 'Крупа гречневая ядрица', category: 'Бакалея', unit: 'г', packSize: 800,
+        prices: {
+          chizhik: { price: 59, promoPrice: null },
+          pyaterochka: { price: 79, promoPrice: 56 },
+          magnit: { price: 82, promoPrice: 59 },
+          dixy: { price: 78, promoPrice: 58 },
+          liniya: { price: 72, promoPrice: 52 },
+          lenta: { price: 84, promoPrice: 55 },
+          perekrestok: { price: 92, promoPrice: 69 },
+          vkusvill: { price: 108, promoPrice: null },
+          auchan: { price: 74, promoPrice: 54 },
+          metro: { price: 70, promoPrice: null },
+          svetofor: { price: 49, promoPrice: null },
+          lavka: { price: 95, promoPrice: 72 }
+        }
+      },
+      rice: {
+        name: 'Рис круглозёрный / длиннозёрный', category: 'Бакалея', unit: 'г', packSize: 800,
+        prices: {
+          chizhik: { price: 79, promoPrice: null },
+          pyaterochka: { price: 105, promoPrice: 76 },
+          magnit: { price: 109, promoPrice: 79 },
+          dixy: { price: 102, promoPrice: 78 },
+          liniya: { price: 96, promoPrice: 72 },
+          lenta: { price: 112, promoPrice: 75 },
+          perekrestok: { price: 119, promoPrice: 89 },
+          vkusvill: { price: 135, promoPrice: null },
+          auchan: { price: 98, promoPrice: 74 },
+          metro: { price: 95, promoPrice: null },
+          svetofor: { price: 69, promoPrice: null },
+          lavka: { price: 125, promoPrice: 95 }
+        }
+      },
+      pasta: {
+        name: 'Макароны из твёрдых сортов', category: 'Бакалея', unit: 'г', packSize: 450,
+        prices: {
+          chizhik: { price: 54, promoPrice: null },
+          pyaterochka: { price: 79, promoPrice: 52 },
+          magnit: { price: 82, promoPrice: 55 },
+          dixy: { price: 76, promoPrice: 54 },
+          liniya: { price: 72, promoPrice: 49 },
+          lenta: { price: 85, promoPrice: 51 },
+          perekrestok: { price: 92, promoPrice: 64 },
+          vkusvill: { price: 104, promoPrice: 82 },
+          auchan: { price: 74, promoPrice: 50 },
+          metro: { price: 70, promoPrice: null },
+          svetofor: { price: 46, promoPrice: null },
+          lavka: { price: 95, promoPrice: 69 }
+        }
+      },
+      lentils: {
+        name: 'Чечевица красная / зелёная', category: 'Бакалея', unit: 'г', packSize: 450,
+        prices: {
+          chizhik: { price: 79, promoPrice: null },
+          pyaterochka: { price: 99, promoPrice: 74 },
+          magnit: { price: 102, promoPrice: 78 },
+          dixy: { price: 96, promoPrice: null },
+          liniya: { price: 92, promoPrice: 69 },
+          lenta: { price: 105, promoPrice: 75 },
+          perekrestok: { price: 115, promoPrice: 85 },
+          vkusvill: { price: 124, promoPrice: 98 },
+          auchan: { price: 94, promoPrice: 72 },
+          metro: { price: 90, promoPrice: null },
+          svetofor: { price: 68, promoPrice: null },
+          lavka: { price: 119, promoPrice: 89 }
+        }
+      },
+      beans: {
+        name: 'Фасоль красная консерв. / сухая', category: 'Бакалея', unit: 'г', packSize: 400,
+        prices: {
+          chizhik: { price: 64, promoPrice: null },
+          pyaterochka: { price: 85, promoPrice: 62 },
+          magnit: { price: 88, promoPrice: 65 },
+          dixy: { price: 82, promoPrice: 64 },
+          liniya: { price: 79, promoPrice: 59 },
+          lenta: { price: 89, promoPrice: 61 },
+          perekrestok: { price: 96, promoPrice: 72 },
+          vkusvill: { price: 112, promoPrice: null },
+          auchan: { price: 80, promoPrice: 60 },
+          metro: { price: 76, promoPrice: null },
+          svetofor: { price: 55, promoPrice: null },
+          lavka: { price: 99, promoPrice: 75 }
+        }
+      },
+      flour: {
+        name: 'Мука пшеничная в/с', category: 'Бакалея', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 49, promoPrice: null },
+          pyaterochka: { price: 65, promoPrice: 48 },
+          magnit: { price: 68, promoPrice: 50 },
+          dixy: { price: 64, promoPrice: null },
+          liniya: { price: 59, promoPrice: 45 },
+          lenta: { price: 69, promoPrice: 49 },
+          perekrestok: { price: 75, promoPrice: 56 },
+          vkusvill: { price: 88, promoPrice: null },
+          auchan: { price: 60, promoPrice: 46 },
+          metro: { price: 58, promoPrice: null },
+          svetofor: { price: 42, promoPrice: null },
+          lavka: { price: 79, promoPrice: 59 }
+        }
+      },
+      bread: {
+        name: 'Хлеб зерновой / тостовый', category: 'Хлеб', unit: 'г', packSize: 400,
+        prices: {
+          chizhik: { price: 44, promoPrice: null },
+          pyaterochka: { price: 58, promoPrice: 44 },
+          magnit: { price: 60, promoPrice: 46 },
+          dixy: { price: 56, promoPrice: 45 },
+          liniya: { price: 52, promoPrice: 41 },
+          lenta: { price: 62, promoPrice: 45 },
+          perekrestok: { price: 68, promoPrice: 52 },
+          vkusvill: { price: 78, promoPrice: 62 },
+          auchan: { price: 54, promoPrice: 43 },
+          metro: { price: 52, promoPrice: null },
+          svetofor: { price: 39, promoPrice: null },
+          lavka: { price: 72, promoPrice: 55 }
+        }
+      },
+      potato: {
+        name: 'Картофель свежий (Смоленск)', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 39, promoPrice: null },
+          pyaterochka: { price: 49, promoPrice: 36 },
+          magnit: { price: 52, promoPrice: 38 },
+          dixy: { price: 48, promoPrice: 37 },
+          liniya: { price: 44, promoPrice: 33 },
+          lenta: { price: 54, promoPrice: 35 },
+          perekrestok: { price: 59, promoPrice: 44 },
+          vkusvill: { price: 69, promoPrice: null },
+          auchan: { price: 45, promoPrice: 34 },
+          metro: { price: 42, promoPrice: null },
+          svetofor: { price: 31, promoPrice: null },
+          lavka: { price: 65, promoPrice: 49 }
+        }
+      },
+      carrot: {
+        name: 'Морковь мытая', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 38, promoPrice: null },
+          pyaterochka: { price: 49, promoPrice: 35 },
+          magnit: { price: 51, promoPrice: 37 },
+          dixy: { price: 47, promoPrice: 36 },
+          liniya: { price: 43, promoPrice: 32 },
+          lenta: { price: 52, promoPrice: 34 },
+          perekrestok: { price: 58, promoPrice: 42 },
+          vkusvill: { price: 68, promoPrice: null },
+          auchan: { price: 44, promoPrice: 33 },
+          metro: { price: 41, promoPrice: null },
+          svetofor: { price: 30, promoPrice: null },
+          lavka: { price: 62, promoPrice: 46 }
+        }
+      },
+      onion: {
+        name: 'Лук репчатый', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 35, promoPrice: null },
+          pyaterochka: { price: 44, promoPrice: 32 },
+          magnit: { price: 46, promoPrice: 34 },
+          dixy: { price: 43, promoPrice: 33 },
+          liniya: { price: 39, promoPrice: 29 },
+          lenta: { price: 47, promoPrice: 31 },
+          perekrestok: { price: 52, promoPrice: 39 },
+          vkusvill: { price: 62, promoPrice: null },
+          auchan: { price: 40, promoPrice: 30 },
+          metro: { price: 38, promoPrice: null },
+          svetofor: { price: 28, promoPrice: null },
+          lavka: { price: 55, promoPrice: 42 }
+        }
+      },
+      tomato: {
+        name: 'Томаты свежие / сливовидные', category: 'Овощи и фрукты', unit: 'г', packSize: 600,
+        prices: {
+          chizhik: { price: 119, promoPrice: null },
+          pyaterochka: { price: 149, promoPrice: 109 },
+          magnit: { price: 155, promoPrice: 115 },
+          dixy: { price: 145, promoPrice: 112 },
+          liniya: { price: 139, promoPrice: 105 },
+          lenta: { price: 159, promoPrice: 108 },
+          perekrestok: { price: 169, promoPrice: 129 },
+          vkusvill: { price: 195, promoPrice: 159 },
+          auchan: { price: 142, promoPrice: 106 },
+          metro: { price: 135, promoPrice: null },
+          svetofor: { price: 99, promoPrice: null },
+          lavka: { price: 179, promoPrice: 139 }
+        }
+      },
+      cucumber: {
+        name: 'Огурцы короткоплодные', category: 'Овощи и фрукты', unit: 'г', packSize: 600,
+        prices: {
+          chizhik: { price: 99, promoPrice: null },
+          pyaterochka: { price: 129, promoPrice: 94 },
+          magnit: { price: 132, promoPrice: 98 },
+          dixy: { price: 125, promoPrice: 95 },
+          liniya: { price: 119, promoPrice: 89 },
+          lenta: { price: 135, promoPrice: 92 },
+          perekrestok: { price: 145, promoPrice: 109 },
+          vkusvill: { price: 168, promoPrice: 135 },
+          auchan: { price: 122, promoPrice: 90 },
+          metro: { price: 115, promoPrice: null },
+          svetofor: { price: 85, promoPrice: null },
+          lavka: { price: 149, promoPrice: 115 }
+        }
+      },
+      pepper: {
+        name: 'Перец сладкий болгарский', category: 'Овощи и фрукты', unit: 'г', packSize: 500,
+        prices: {
+          chizhik: { price: 129, promoPrice: null },
+          pyaterochka: { price: 159, promoPrice: 119 },
+          magnit: { price: 165, promoPrice: 124 },
+          dixy: { price: 155, promoPrice: 120 },
+          liniya: { price: 149, promoPrice: 112 },
+          lenta: { price: 169, promoPrice: 118 },
+          perekrestok: { price: 179, promoPrice: 139 },
+          vkusvill: { price: 205, promoPrice: null },
+          auchan: { price: 152, promoPrice: 115 },
+          metro: { price: 145, promoPrice: null },
+          svetofor: { price: 109, promoPrice: null },
+          lavka: { price: 189, promoPrice: 145 }
+        }
+      },
+      broccoli: {
+        name: 'Брокколи / цветная капуста зам.', category: 'Овощи и фрукты', unit: 'г', packSize: 400,
+        prices: {
+          chizhik: { price: 99, promoPrice: null },
+          pyaterochka: { price: 129, promoPrice: 95 },
+          magnit: { price: 135, promoPrice: 99 },
+          dixy: { price: 125, promoPrice: 96 },
+          liniya: { price: 119, promoPrice: 89 },
+          lenta: { price: 139, promoPrice: 94 },
+          perekrestok: { price: 149, promoPrice: 112 },
+          vkusvill: { price: 169, promoPrice: 138 },
+          auchan: { price: 122, promoPrice: 92 },
+          metro: { price: 118, promoPrice: null },
+          svetofor: { price: 84, promoPrice: null },
+          lavka: { price: 155, promoPrice: 119 }
+        }
+      },
+      cabbage: {
+        name: 'Капуста белокочанная', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 32, promoPrice: null },
+          pyaterochka: { price: 42, promoPrice: 29 },
+          magnit: { price: 44, promoPrice: 31 },
+          dixy: { price: 41, promoPrice: 30 },
+          liniya: { price: 38, promoPrice: 27 },
+          lenta: { price: 45, promoPrice: 28 },
+          perekrestok: { price: 49, promoPrice: 36 },
+          vkusvill: { price: 58, promoPrice: null },
+          auchan: { price: 39, promoPrice: 28 },
+          metro: { price: 36, promoPrice: null },
+          svetofor: { price: 25, promoPrice: null },
+          lavka: { price: 52, promoPrice: 39 }
+        }
+      },
+      zucchini: {
+        name: 'Кабачки свежие', category: 'Овощи и фрукты', unit: 'г', packSize: 600,
+        prices: {
+          chizhik: { price: 89, promoPrice: null },
+          pyaterochka: { price: 115, promoPrice: 84 },
+          magnit: { price: 119, promoPrice: 88 },
+          dixy: { price: 112, promoPrice: 85 },
+          liniya: { price: 105, promoPrice: 79 },
+          lenta: { price: 122, promoPrice: 82 },
+          perekrestok: { price: 132, promoPrice: 99 },
+          vkusvill: { price: 149, promoPrice: null },
+          auchan: { price: 109, promoPrice: 80 },
+          metro: { price: 102, promoPrice: null },
+          svetofor: { price: 75, promoPrice: null },
+          lavka: { price: 139, promoPrice: 105 }
+        }
+      },
+      mushrooms: {
+        name: 'Шампиньоны свежие', category: 'Овощи и фрукты', unit: 'г', packSize: 400,
+        prices: {
+          chizhik: { price: 99, promoPrice: null },
+          pyaterochka: { price: 129, promoPrice: 94 },
+          magnit: { price: 134, promoPrice: 98 },
+          dixy: { price: 125, promoPrice: 95 },
+          liniya: { price: 119, promoPrice: 89 },
+          lenta: { price: 139, promoPrice: 92 },
+          perekrestok: { price: 149, promoPrice: 112 },
+          vkusvill: { price: 165, promoPrice: 135 },
+          auchan: { price: 122, promoPrice: 91 },
+          metro: { price: 115, promoPrice: null },
+          svetofor: { price: 85, promoPrice: null },
+          lavka: { price: 155, promoPrice: 119 }
+        }
+      },
+      banana: {
+        name: 'Бананы спелые', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 119, promoPrice: null },
+          pyaterochka: { price: 145, promoPrice: 114 },
+          magnit: { price: 149, promoPrice: 118 },
+          dixy: { price: 142, promoPrice: 115 },
+          liniya: { price: 135, promoPrice: 109 },
+          lenta: { price: 152, promoPrice: 112 },
+          perekrestok: { price: 159, promoPrice: 125 },
+          vkusvill: { price: 175, promoPrice: null },
+          auchan: { price: 139, promoPrice: 110 },
+          metro: { price: 132, promoPrice: null },
+          svetofor: { price: 105, promoPrice: null },
+          lavka: { price: 165, promoPrice: 129 }
+        }
+      },
+      apple: {
+        name: 'Яблоки сезонные', category: 'Овощи и фрукты', unit: 'г', packSize: 1000,
+        prices: {
+          chizhik: { price: 95, promoPrice: null },
+          pyaterochka: { price: 119, promoPrice: 89 },
+          magnit: { price: 124, promoPrice: 94 },
+          dixy: { price: 115, promoPrice: 92 },
+          liniya: { price: 109, promoPrice: 85 },
+          lenta: { price: 129, promoPrice: 88 },
+          perekrestok: { price: 135, promoPrice: 102 },
+          vkusvill: { price: 155, promoPrice: 125 },
+          auchan: { price: 112, promoPrice: 86 },
+          metro: { price: 105, promoPrice: null },
+          svetofor: { price: 79, promoPrice: null },
+          lavka: { price: 139, promoPrice: 109 }
+        }
+      },
+      tomato_paste: {
+        name: 'Томатная паста / протёртые томаты', category: 'Бакалея и соусы', unit: 'г', packSize: 270,
+        prices: {
+          chizhik: { price: 69, promoPrice: null },
+          pyaterochka: { price: 89, promoPrice: 64 },
+          magnit: { price: 92, promoPrice: 68 },
+          dixy: { price: 85, promoPrice: 65 },
+          liniya: { price: 79, promoPrice: 59 },
+          lenta: { price: 94, promoPrice: 62 },
+          perekrestok: { price: 102, promoPrice: 76 },
+          vkusvill: { price: 118, promoPrice: null },
+          auchan: { price: 82, promoPrice: 61 },
+          metro: { price: 78, promoPrice: null },
+          svetofor: { price: 55, promoPrice: null },
+          lavka: { price: 105, promoPrice: 79 }
+        }
+      },
+      sour_cream: {
+        name: 'Сметана 15%', category: 'Молочное', unit: 'г', packSize: 300,
+        prices: {
+          chizhik: { price: 69, promoPrice: null },
+          pyaterochka: { price: 89, promoPrice: 66 },
+          magnit: { price: 92, promoPrice: 69 },
+          dixy: { price: 86, promoPrice: 67 },
+          liniya: { price: 82, promoPrice: 62 },
+          lenta: { price: 94, promoPrice: 65 },
+          perekrestok: { price: 99, promoPrice: 76 },
+          vkusvill: { price: 112, promoPrice: 92 },
+          auchan: { price: 84, promoPrice: 64 },
+          metro: { price: 80, promoPrice: null },
+          svetofor: { price: 59, promoPrice: null },
+          lavka: { price: 105, promoPrice: 82 }
+        }
+      },
+      cream: {
+        name: 'Сливки 10% для соусов', category: 'Молочное', unit: 'мл', packSize: 200,
+        prices: {
+          chizhik: { price: 54, promoPrice: null },
+          pyaterochka: { price: 69, promoPrice: 52 },
+          magnit: { price: 72, promoPrice: 55 },
+          dixy: { price: 68, promoPrice: 53 },
+          liniya: { price: 64, promoPrice: 49 },
+          lenta: { price: 74, promoPrice: 51 },
+          perekrestok: { price: 79, promoPrice: 59 },
+          vkusvill: { price: 88, promoPrice: null },
+          auchan: { price: 65, promoPrice: 50 },
+          metro: { price: 62, promoPrice: null },
+          svetofor: { price: 46, promoPrice: null },
+          lavka: { price: 82, promoPrice: 62 }
+        }
+      },
+      oil: {
+        name: 'Масло подсолнечное / оливковое', category: 'Бакалея и соусы', unit: 'мл', packSize: 900,
+        prices: {
+          chizhik: { price: 109, promoPrice: null },
+          pyaterochka: { price: 139, promoPrice: 104 },
+          magnit: { price: 144, promoPrice: 109 },
+          dixy: { price: 135, promoPrice: 106 },
+          liniya: { price: 129, promoPrice: 99 },
+          lenta: { price: 149, promoPrice: 102 },
+          perekrestok: { price: 159, promoPrice: 119 },
+          vkusvill: { price: 185, promoPrice: null },
+          auchan: { price: 132, promoPrice: 100 },
+          metro: { price: 125, promoPrice: null },
+          svetofor: { price: 95, promoPrice: null },
+          lavka: { price: 165, promoPrice: 125 }
+        }
+      },
+      tofu: {
+        name: 'Тофу классический', category: 'Растительное', unit: 'г', packSize: 250,
+        prices: {
+          chizhik: { price: 89, promoPrice: null },
+          pyaterochka: { price: 119, promoPrice: 89 },
+          magnit: { price: 124, promoPrice: 94 },
+          dixy: { price: 115, promoPrice: null },
+          liniya: { price: 109, promoPrice: 85 },
+          lenta: { price: 129, promoPrice: 92 },
+          perekrestok: { price: 139, promoPrice: 105 },
+          vkusvill: { price: 142, promoPrice: 115 },
+          auchan: { price: 112, promoPrice: 88 },
+          metro: { price: 108, promoPrice: null },
+          svetofor: { price: 79, promoPrice: null },
+          lavka: { price: 145, promoPrice: 112 }
+        }
+      },
+      oat_milk: {
+        name: 'Напиток овсяный растительный', category: 'Растительное', unit: 'мл', packSize: 1000,
+        prices: {
+          chizhik: { price: 89, promoPrice: null },
+          pyaterochka: { price: 119, promoPrice: 89 },
+          magnit: { price: 125, promoPrice: 95 },
+          dixy: { price: 115, promoPrice: null },
+          liniya: { price: 109, promoPrice: 85 },
+          lenta: { price: 129, promoPrice: 88 },
+          perekrestok: { price: 139, promoPrice: 105 },
+          vkusvill: { price: 148, promoPrice: 119 },
+          auchan: { price: 112, promoPrice: 86 },
+          metro: { price: 105, promoPrice: null },
+          svetofor: { price: 79, promoPrice: null },
+          lavka: { price: 145, promoPrice: 112 }
+        }
+      },
+      garlic: {
+        name: 'Чеснок свежий', category: 'Овощи и фрукты', unit: 'г', packSize: 150,
+        prices: {
+          chizhik: { price: 39, promoPrice: null },
+          pyaterochka: { price: 49, promoPrice: 36 },
+          magnit: { price: 52, promoPrice: 38 },
+          dixy: { price: 48, promoPrice: null },
+          liniya: { price: 45, promoPrice: 34 },
+          lenta: { price: 54, promoPrice: 35 },
+          perekrestok: { price: 59, promoPrice: 44 },
+          vkusvill: { price: 68, promoPrice: null },
+          auchan: { price: 46, promoPrice: 35 },
+          metro: { price: 44, promoPrice: null },
+          svetofor: { price: 32, promoPrice: null },
+          lavka: { price: 59, promoPrice: 45 }
+        }
+      },
+      greens: {
+        name: 'Зелень свежая (укроп / петрушка)', category: 'Овощи и фрукты', unit: 'г', packSize: 70,
+        prices: {
+          chizhik: { price: 39, promoPrice: null },
+          pyaterochka: { price: 49, promoPrice: 36 },
+          magnit: { price: 52, promoPrice: 39 },
+          dixy: { price: 48, promoPrice: 37 },
+          liniya: { price: 44, promoPrice: 33 },
+          lenta: { price: 54, promoPrice: 35 },
+          perekrestok: { price: 59, promoPrice: 45 },
+          vkusvill: { price: 65, promoPrice: 52 },
+          auchan: { price: 45, promoPrice: 34 },
+          metro: { price: 42, promoPrice: null },
+          svetofor: { price: 30, promoPrice: null },
+          lavka: { price: 59, promoPrice: 45 }
+        }
+      }
+    };
+
+    let SMOLENSK_PRICES_DB = JSON.parse(JSON.stringify(DEFAULT_SMOLENSK_PRICES));
+
+    /* ============================================================================
+       3. БАЗА РЕЦЕПТОВ (36 БЛЮД: ЗАВТРАКИ, ОБЕДЫ, УЖИНЫ)
+       diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan']
+       ingredients: количество на 1 СТАНДАРТНУЮ взрослую порцию
+       ============================================================================ */
+    const RECIPES_DB = [
+      // --- ЗАВТРАКИ (12 блюд) ---
+      {
+        id: 'b_oatmeal_banana',
+        name: 'Овсяная каша на молоке с бананом',
+        mealType: 'breakfast',
+        emoji: '🥣',
+        time: '12 мин',
+        kcal: 360,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['lactose', 'gluten'],
+        dislikes: [],
+        appliances: ['stove', 'multicooker', 'microwave'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'oats', amount: 65 },
+          { id: 'milk', amount: 200 },
+          { id: 'banana', amount: 80 },
+          { id: 'butter', amount: 10 }
+        ]
+      },
+      {
+        id: 'b_oatmeal_vegan',
+        name: 'Овсянка на овсяном молоке с яблоком',
+        mealType: 'breakfast',
+        emoji: '🍏',
+        time: '12 мин',
+        kcal: 340,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: ['gluten'],
+        dislikes: [],
+        appliances: ['stove', 'multicooker', 'microwave'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'oats', amount: 70 },
+          { id: 'oat_milk', amount: 200 },
+          { id: 'apple', amount: 90 }
+        ]
+      },
+      {
+        id: 'b_syrniki',
+        name: 'Домашние сырники со сметаной',
+        mealType: 'breakfast',
+        emoji: '🥞',
+        time: '20 мин',
+        kcal: 410,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['lactose', 'eggs', 'gluten'],
+        dislikes: [],
+        appliances: ['stove', 'oven'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'tvorog', amount: 160 },
+          { id: 'eggs', amount: 0.5 },
+          { id: 'flour', amount: 25 },
+          { id: 'sour_cream', amount: 30 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'b_omelet_cheese',
+        name: 'Пышный омлет с сыром и томатами',
+        mealType: 'breakfast',
+        emoji: '🍳',
+        time: '15 мин',
+        kcal: 380,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['eggs', 'lactose'],
+        dislikes: [],
+        appliances: ['stove', 'oven', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'eggs', amount: 2.5 },
+          { id: 'milk', amount: 60 },
+          { id: 'cheese', amount: 30 },
+          { id: 'tomato', amount: 70 },
+          { id: 'butter', amount: 8 }
+        ]
+      },
+      {
+        id: 'b_scrambled_veggies',
+        name: 'Скрэмбл на тосте с огурцом и зеленью',
+        mealType: 'breakfast',
+        emoji: '🥪',
+        time: '12 мин',
+        kcal: 370,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['eggs', 'gluten'],
+        dislikes: [],
+        appliances: ['stove', 'grill_pan'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'eggs', amount: 2 },
+          { id: 'bread', amount: 70 },
+          { id: 'cucumber', amount: 70 },
+          { id: 'greens', amount: 10 },
+          { id: 'oil', amount: 8 }
+        ]
+      },
+      {
+        id: 'b_tvorog_banana',
+        name: 'Нежный творог с бананом и сметаной',
+        mealType: 'breakfast',
+        emoji: '🍨',
+        time: '5 мин',
+        kcal: 330,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['lactose'],
+        dislikes: [],
+        appliances: ['blender', 'stove', 'microwave'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'tvorog', amount: 170 },
+          { id: 'banana', amount: 90 },
+          { id: 'sour_cream', amount: 30 }
+        ]
+      },
+      {
+        id: 'b_buckwheat_milk',
+        name: 'Гречневая каша с маслом и яйцом пашот',
+        mealType: 'breakfast',
+        emoji: '🥚',
+        time: '18 мин',
+        kcal: 390,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['eggs', 'lactose'],
+        dislikes: [],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'buckwheat', amount: 75 },
+          { id: 'eggs', amount: 1 },
+          { id: 'butter', amount: 12 },
+          { id: 'greens', amount: 8 }
+        ]
+      },
+      {
+        id: 'b_tofu_scramble',
+        name: 'Скрэмбл из тофу с томатами и шпинатом',
+        mealType: 'breakfast',
+        emoji: '🌱',
+        time: '14 мин',
+        kcal: 320,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: ['soy', 'gluten'],
+        dislikes: ['tofu'],
+        appliances: ['stove'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'tofu', amount: 130 },
+          { id: 'tomato', amount: 80 },
+          { id: 'bread', amount: 60 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'b_hot_sandwich',
+        name: 'Горячие бутерброды с курицей и сыром',
+        mealType: 'breakfast',
+        emoji: '🧀',
+        time: '10 мин',
+        kcal: 430,
+        diets: ['omnivore'],
+        allergies: ['gluten', 'lactose'],
+        dislikes: [],
+        appliances: ['oven', 'microwave', 'airfryer', 'grill_pan'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'bread', amount: 80 },
+          { id: 'chicken_fillet', amount: 70 },
+          { id: 'cheese', amount: 35 },
+          { id: 'tomato', amount: 50 }
+        ]
+      },
+      {
+        id: 'b_rice_porridge',
+        name: 'Сливочная рисовая каша с яблоком',
+        mealType: 'breakfast',
+        emoji: '🍚',
+        time: '22 мин',
+        kcal: 375,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['lactose'],
+        dislikes: [],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'rice', amount: 65 },
+          { id: 'milk', amount: 220 },
+          { id: 'apple', amount: 80 },
+          { id: 'butter', amount: 10 }
+        ]
+      },
+      {
+        id: 'b_shakshuka',
+        name: 'Шакшука с томатами и сладким перцем',
+        mealType: 'breakfast',
+        emoji: '🥘',
+        time: '18 мин',
+        kcal: 360,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['eggs', 'gluten'],
+        dislikes: ['onion', 'garlic'],
+        appliances: ['stove'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'eggs', amount: 2 },
+          { id: 'tomato', amount: 130 },
+          { id: 'pepper', amount: 60 },
+          { id: 'onion', amount: 30 },
+          { id: 'bread', amount: 50 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'b_banana_pancakes',
+        name: 'Банановые оладьи на овсяной муке',
+        mealType: 'breakfast',
+        emoji: '🍌',
+        time: '15 мин',
+        kcal: 350,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: ['gluten'],
+        dislikes: [],
+        appliances: ['stove', 'blender'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'banana', amount: 120 },
+          { id: 'oats', amount: 65 },
+          { id: 'oat_milk', amount: 80 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+
+      // --- ОБЕДЫ (12 блюд) ---
+      {
+        id: 'l_chicken_soup',
+        name: 'Домашний куриный суп с лапшой и овощами',
+        mealType: 'lunch',
+        emoji: '🍜',
+        time: '35 мин',
+        kcal: 420,
+        diets: ['omnivore'],
+        allergies: ['gluten'],
+        dislikes: ['onion'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'chicken_fillet', amount: 120 },
+          { id: 'pasta', amount: 45 },
+          { id: 'potato', amount: 100 },
+          { id: 'carrot', amount: 45 },
+          { id: 'onion', amount: 30 },
+          { id: 'greens', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_buckwheat_chicken',
+        name: 'Гречка с тушёной куриной грудкой и овощами',
+        mealType: 'lunch',
+        emoji: '🍗',
+        time: '30 мин',
+        kcal: 490,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: ['onion'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'buckwheat', amount: 85 },
+          { id: 'chicken_fillet', amount: 140 },
+          { id: 'carrot', amount: 50 },
+          { id: 'onion', amount: 35 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_pasta_bolognese',
+        name: 'Паста Болоньезе с домашним фаршем',
+        mealType: 'lunch',
+        emoji: '🍝',
+        time: '30 мин',
+        kcal: 540,
+        diets: ['omnivore'],
+        allergies: ['gluten', 'lactose'],
+        dislikes: ['pork', 'red_meat', 'onion', 'garlic'],
+        appliances: ['stove'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'pasta', amount: 90 },
+          { id: 'minced_beef', amount: 130 },
+          { id: 'tomato_paste', amount: 50 },
+          { id: 'onion', amount: 35 },
+          { id: 'cheese', amount: 20 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_lentil_soup',
+        name: 'Крем-суп из красной чечевицы с морковью',
+        mealType: 'lunch',
+        emoji: '🥣',
+        time: '25 мин',
+        kcal: 410,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: [],
+        dislikes: ['onion', 'garlic'],
+        appliances: ['stove', 'multicooker', 'blender'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'lentils', amount: 90 },
+          { id: 'carrot', amount: 60 },
+          { id: 'potato', amount: 80 },
+          { id: 'onion', amount: 35 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_plov_chicken',
+        name: 'Рассыпчатый плов с куриным бедром',
+        mealType: 'lunch',
+        emoji: '🍛',
+        time: '40 мин',
+        kcal: 530,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: ['onion', 'garlic'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'rice', amount: 90 },
+          { id: 'chicken_thigh', amount: 140 },
+          { id: 'carrot', amount: 70 },
+          { id: 'onion', amount: 40 },
+          { id: 'garlic', amount: 10 },
+          { id: 'oil', amount: 15 }
+        ]
+      },
+      {
+        id: 'l_fish_soup',
+        name: 'Лёгкая уха из форели с картофелем',
+        mealType: 'lunch',
+        emoji: '🐟',
+        time: '30 мин',
+        kcal: 430,
+        diets: ['omnivore', 'pescatarian'],
+        allergies: ['fish'],
+        dislikes: ['onion'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'salmon', amount: 130 },
+          { id: 'potato', amount: 120 },
+          { id: 'carrot', amount: 50 },
+          { id: 'onion', amount: 30 },
+          { id: 'greens', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_mushroom_pasta',
+        name: 'Паста с шампиньонами в сливочном соусе',
+        mealType: 'lunch',
+        emoji: '🍄',
+        time: '22 мин',
+        kcal: 510,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['gluten', 'lactose'],
+        dislikes: ['mushrooms', 'onion', 'garlic'],
+        appliances: ['stove'],
+        kidFriendly: false,
+        ingredients: [
+          { id: 'pasta', amount: 90 },
+          { id: 'mushrooms', amount: 110 },
+          { id: 'cream', amount: 80 },
+          { id: 'cheese', amount: 25 },
+          { id: 'onion', amount: 30 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'l_turkey_cutlets',
+        name: 'Котлеты из индейки с картофельным пюре',
+        mealType: 'lunch',
+        emoji: '🥔',
+        time: '35 мин',
+        kcal: 520,
+        diets: ['omnivore'],
+        allergies: ['lactose'],
+        dislikes: ['onion'],
+        appliances: ['stove', 'oven', 'steamer'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'turkey_fillet', amount: 140 },
+          { id: 'potato', amount: 180 },
+          { id: 'milk', amount: 50 },
+          { id: 'butter', amount: 12 },
+          { id: 'onion', amount: 30 }
+        ]
+      },
+      {
+        id: 'l_bean_stew',
+        name: 'Рагу из красной фасоли и овощей в томате',
+        mealType: 'lunch',
+        emoji: '🫘',
+        time: '25 мин',
+        kcal: 430,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: [],
+        dislikes: ['onion', 'garlic'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'beans', amount: 140 },
+          { id: 'pepper', amount: 70 },
+          { id: 'carrot', amount: 50 },
+          { id: 'tomato_paste', amount: 45 },
+          { id: 'onion', amount: 35 },
+          { id: 'oil', amount: 12 }
+        ]
+      },
+      {
+        id: 'l_cabbage_stew',
+        name: 'Тушёная капуста с курицей и морковью',
+        mealType: 'lunch',
+        emoji: '🥬',
+        time: '35 мин',
+        kcal: 440,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: ['onion'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'cabbage', amount: 200 },
+          { id: 'chicken_thigh', amount: 130 },
+          { id: 'carrot', amount: 50 },
+          { id: 'tomato_paste', amount: 30 },
+          { id: 'onion', amount: 35 },
+          { id: 'oil', amount: 12 }
+        ]
+      },
+      {
+        id: 'l_rice_pollock',
+        name: 'Минтай в сметанном соусе с рисом',
+        mealType: 'lunch',
+        emoji: '🐠',
+        time: '30 мин',
+        kcal: 460,
+        diets: ['omnivore', 'pescatarian'],
+        allergies: ['fish', 'lactose'],
+        dislikes: ['onion'],
+        appliances: ['stove', 'oven', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'pollock', amount: 150 },
+          { id: 'rice', amount: 80 },
+          { id: 'sour_cream', amount: 45 },
+          { id: 'carrot', amount: 45 },
+          { id: 'onion', amount: 30 }
+        ]
+      },
+      {
+        id: 'l_buckwheat_mushrooms',
+        name: 'Гречка по-купечески с грибами и луком',
+        mealType: 'lunch',
+        emoji: '🍲',
+        time: '25 мин',
+        kcal: 420,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: [],
+        dislikes: ['mushrooms', 'onion'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: false,
+        ingredients: [
+          { id: 'buckwheat', amount: 90 },
+          { id: 'mushrooms', amount: 110 },
+          { id: 'carrot', amount: 50 },
+          { id: 'onion', amount: 40 },
+          { id: 'oil', amount: 12 }
+        ]
+      },
+
+      // --- УЖИНЫ (12 блюд) ---
+      {
+        id: 'd_baked_chicken_broccoli',
+        name: 'Запечённое филе курицы с брокколи',
+        mealType: 'dinner',
+        emoji: '🥦',
+        time: '25 мин',
+        kcal: 380,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: [],
+        appliances: ['oven', 'airfryer', 'steamer'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'chicken_fillet', amount: 150 },
+          { id: 'broccoli', amount: 140 },
+          { id: 'oil', amount: 10 },
+          { id: 'greens', amount: 8 }
+        ]
+      },
+      {
+        id: 'd_salmon_veggies',
+        name: 'Форель на пару с овощным салатом',
+        mealType: 'dinner',
+        emoji: '🍣',
+        time: '20 мин',
+        kcal: 430,
+        diets: ['omnivore', 'pescatarian'],
+        allergies: ['fish'],
+        dislikes: [],
+        appliances: ['oven', 'steamer', 'airfryer', 'grill_pan'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'salmon', amount: 140 },
+          { id: 'cucumber', amount: 90 },
+          { id: 'tomato', amount: 90 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'd_zucchini_boats',
+        name: 'Запечённые кабачки с индейкой и сыром',
+        mealType: 'dinner',
+        emoji: '🥒',
+        time: '35 мин',
+        kcal: 400,
+        diets: ['omnivore'],
+        allergies: ['lactose'],
+        dislikes: [],
+        appliances: ['oven', 'airfryer'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'zucchini', amount: 180 },
+          { id: 'turkey_fillet', amount: 130 },
+          { id: 'cheese', amount: 30 },
+          { id: 'tomato', amount: 60 }
+        ]
+      },
+      {
+        id: 'd_pollock_potato',
+        name: 'Запечённый минтай с картофелем и зеленью',
+        mealType: 'dinner',
+        emoji: '🐟',
+        time: '35 мин',
+        kcal: 410,
+        diets: ['omnivore', 'pescatarian'],
+        allergies: ['fish'],
+        dislikes: ['onion'],
+        appliances: ['oven', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'pollock', amount: 150 },
+          { id: 'potato', amount: 150 },
+          { id: 'onion', amount: 30 },
+          { id: 'oil', amount: 10 },
+          { id: 'greens', amount: 10 }
+        ]
+      },
+      {
+        id: 'd_tofu_stirfry',
+        name: 'Тёплый салат с тофу, перцем и брокколи',
+        mealType: 'dinner',
+        emoji: '🥗',
+        time: '18 мин',
+        kcal: 360,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: ['soy'],
+        dislikes: ['tofu', 'garlic'],
+        appliances: ['stove', 'grill_pan'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'tofu', amount: 130 },
+          { id: 'broccoli', amount: 110 },
+          { id: 'pepper', amount: 80 },
+          { id: 'oil', amount: 12 }
+        ]
+      },
+      {
+        id: 'd_meatballs_tomato',
+        name: 'Домашние тефтели в томатном соусе с рисом',
+        mealType: 'dinner',
+        emoji: '🧆',
+        time: '35 мин',
+        kcal: 490,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: ['pork', 'red_meat', 'onion'],
+        appliances: ['stove', 'oven', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'minced_beef', amount: 130 },
+          { id: 'rice', amount: 65 },
+          { id: 'tomato_paste', amount: 45 },
+          { id: 'onion', amount: 30 }
+        ]
+      },
+      {
+        id: 'd_veggie_omelet',
+        name: 'Запеканка из яиц, брокколи и сыра',
+        mealType: 'dinner',
+        emoji: '🥧',
+        time: '25 мин',
+        kcal: 370,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['eggs', 'lactose'],
+        dislikes: [],
+        appliances: ['oven', 'multicooker', 'airfryer'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'eggs', amount: 2 },
+          { id: 'broccoli', amount: 120 },
+          { id: 'milk', amount: 60 },
+          { id: 'cheese', amount: 30 }
+        ]
+      },
+      {
+        id: 'd_chicken_salad',
+        name: 'Тёплый салат с курицей-гриль и овощами',
+        mealType: 'dinner',
+        emoji: '🥙',
+        time: '20 мин',
+        kcal: 390,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: [],
+        appliances: ['grill_pan', 'stove', 'airfryer'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'chicken_fillet', amount: 140 },
+          { id: 'tomato', amount: 90 },
+          { id: 'cucumber', amount: 90 },
+          { id: 'pepper', amount: 60 },
+          { id: 'oil', amount: 12 }
+        ]
+      },
+      {
+        id: 'd_lentil_curry',
+        name: 'Тушёная чечевица с томатами и кабачком',
+        mealType: 'dinner',
+        emoji: '🍛',
+        time: '25 мин',
+        kcal: 390,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: [],
+        dislikes: ['onion', 'garlic'],
+        appliances: ['stove', 'multicooker'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'lentils', amount: 85 },
+          { id: 'zucchini', amount: 110 },
+          { id: 'tomato', amount: 90 },
+          { id: 'onion', amount: 30 },
+          { id: 'oil', amount: 10 }
+        ]
+      },
+      {
+        id: 'd_turkey_grill',
+        name: 'Стейк из индейки с салатом из капусты и огурца',
+        mealType: 'dinner',
+        emoji: '🥩',
+        time: '20 мин',
+        kcal: 370,
+        diets: ['omnivore'],
+        allergies: [],
+        dislikes: [],
+        appliances: ['grill_pan', 'stove', 'airfryer', 'oven'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'turkey_fillet', amount: 150 },
+          { id: 'cabbage', amount: 110 },
+          { id: 'cucumber', amount: 80 },
+          { id: 'oil', amount: 12 },
+          { id: 'greens', amount: 10 }
+        ]
+      },
+      {
+        id: 'd_potato_mushrooms',
+        name: 'Запечённый картофель с шампиньонами и зеленью',
+        mealType: 'dinner',
+        emoji: '🥔',
+        time: '35 мин',
+        kcal: 410,
+        diets: ['omnivore', 'pescatarian', 'vegetarian', 'vegan'],
+        allergies: [],
+        dislikes: ['mushrooms', 'onion', 'garlic'],
+        appliances: ['oven', 'airfryer', 'stove'],
+        kidFriendly: false,
+        ingredients: [
+          { id: 'potato', amount: 200 },
+          { id: 'mushrooms', amount: 120 },
+          { id: 'onion', amount: 35 },
+          { id: 'oil', amount: 12 },
+          { id: 'greens', amount: 10 }
+        ]
+      },
+      {
+        id: 'd_tvorog_casserole',
+        name: 'Творожная запеканка с яблоком на ужин',
+        mealType: 'dinner',
+        emoji: '🍰',
+        time: '35 мин',
+        kcal: 360,
+        diets: ['omnivore', 'pescatarian', 'vegetarian'],
+        allergies: ['lactose', 'eggs'],
+        dislikes: [],
+        appliances: ['oven', 'multicooker', 'microwave'],
+        kidFriendly: true,
+        ingredients: [
+          { id: 'tvorog', amount: 170 },
+          { id: 'eggs', amount: 0.5 },
+          { id: 'apple', amount: 80 },
+          { id: 'sour_cream', amount: 25 }
+        ]
+      }
+    ];
+
+    /* ============================================================================
+       4. СОСТОЯНИЕ ПРИЛОЖЕНИЯ (STATE)
+       ============================================================================ */
+    const state = {
+      step: 1, // 1..9 — шаги квиза, 10 — экран результатов
+      stores: ['pyaterochka', 'magnit', 'chizhik'],
+      adults: 2,
+      hasChildren: true,
+      children: [{ id: 1, age: 4 }],
+      gender: 'female', // 'female' | 'male'
+      meals: {
+        selfBreakfast: true,
+        selfLunch: true,
+        selfDinner: true,
+        familyBreakfast: true,
+        familyLunch: true,
+        familyDinner: true
+      },
+      budget: 8500,
+      editingBudget: false,
+      diet: 'omnivore', // 'omnivore' | 'pescatarian' | 'vegetarian' | 'vegan'
+      allergies: [],
+      dislikes: ['cilantro'],
+      appliances: ['stove', 'oven', 'microwave', 'multicooker'],
+      // Вкусовая карта
+      likedDishes: [],
+      dislikedDishes: [],
+      // Сгенерированное меню на 7 дней
+      weeklyMenu: [],
+      selectedDay: 0,
+      resultTab: 'menu', // 'menu' | 'shop'
+      shopGroupBy: 'store', // 'store' | 'category'
+      purchasedItems: {}
+    };
+
+    /* ============================================================================
+       5. МАТЕМАТИКА ПОРЦИЙ, ВОЗРАСТА И ПОРОГОВ
+       ============================================================================ */
+    function getChildCoefficient(age) {
+      if (age <= 3) return 0.45;
+      if (age <= 6) return 0.60;
+      if (age <= 10) return 0.75;
+      if (age <= 13) return 0.90;
+      return 1.05;
+    }
+
+    function getUserCoefficient() {
+      return state.gender === 'male' ? 1.1 : 0.9;
+    }
+
+    function getPortionBreakdown() {
+      const userK = getUserCoefficient();
+      let otherAdultsK = 0;
+      if (state.adults > 1) {
+        // Если взрослых >= 2, второй взрослый условно противоположного/среднего коэффициента 1.0
+        otherAdultsK = (state.adults - 1) * 1.0;
+      }
+      let childrenK = 0;
+      if (state.hasChildren) {
+        state.children.forEach(c => {
+          childrenK += getChildCoefficient(c.age);
+        });
+      }
+      const totalPeople = state.adults + (state.hasChildren ? state.children.length : 0);
+      const familyK = +(userK + otherAdultsK + childrenK).toFixed(2);
+      return {
+        userK,
+        familyK,
+        totalPeople
+      };
+    }
+
+    function getActiveMealTypes() {
+      const m = state.meals;
+      const types = [];
+      if (m.selfBreakfast || m.familyBreakfast) types.push('breakfast');
+      if (m.selfLunch || m.familyLunch) types.push('lunch');
+      if (m.selfDinner || m.familyDinner) types.push('dinner');
+      return types;
+    }
+
+    function getMinLikesRequired() {
+      const activeMealsCount = Math.max(1, getActiveMealTypes().length);
+      return activeMealsCount * 4 + 3; // 15 для 3 приёмов, 11 для 2, 7 для 1
+    }
+
+    function getDynamicMinBudget() {
+      const { familyK, userK } = getPortionBreakdown();
+      const activeMeals = getActiveMealTypes().length;
+      const avgPortionsPerDay = (familyK * 0.75 + userK * 0.25) * activeMeals;
+      const rawMin = Math.round((avgPortionsPerDay * 7 * 260) / 250) * 250;
+      return Math.max(2500, rawMin);
+    }
+
+    function hasYoungChildrenInFamilyMeals() {
+      if (!state.hasChildren) return false;
+      const hasYoung = state.children.some(c => c.age <= 7);
+      const hasFamilyMeal = state.meals.familyBreakfast || state.meals.familyLunch || state.meals.familyDinner;
+      return hasYoung && hasFamilyMeal;
+    }
+
+    /* ============================================================================
+       6. ПРЕДФИЛЬТРАЦИЯ БЛЮД ДЛЯ ВКУСОВОЙ КАРТЫ
+       ============================================================================ */
+    function getFilteredRecipes() {
+      const activeTypes = getActiveMealTypes();
+      const protectKids = hasYoungChildrenInFamilyMeals();
+
+      return RECIPES_DB.filter(recipe => {
+        // Фильтр по выбранным приёмам пищи
+        if (!activeTypes.includes(recipe.mealType)) return false;
+        // Тип питания
+        if (!recipe.diets.includes(state.diet)) return false;
+        // Аллергии
+        if (recipe.allergies.some(a => state.allergies.includes(a))) return false;
+        // Не люблю
+        if (recipe.dislikes.some(d => state.dislikes.includes(d))) return false;
+        // Кухонная техника (нужен хотя бы 1 прибор из списка рецепта)
+        if (state.appliances.length > 0 && !recipe.appliances.some(app => state.appliances.includes(app))) {
+          return false;
+        }
+        // Мягкое меню для малышей до 7 лет
+        if (protectKids && !recipe.kidFriendly) return false;
+
+        return true;
+      });
+    }
+
+    function getRemainingSwipeDeck() {
+      const filtered = getFilteredRecipes();
+      const seen = new Set([...state.likedDishes, ...state.dislikedDishes]);
+      return filtered.filter(r => !seen.has(r.id));
+    }
+
+    /* ============================================================================
+       7. ПОИСК ЛУЧШЕЙ ЦЕНЫ В ВЫБРАННЫХ МАГАЗИНАХ СМОЛЕНСКА
+       ============================================================================ */
+    function getBestOfferForProduct(productId) {
+      const product = SMOLENSK_PRICES_DB[productId];
+      if (!product) return null;
+
+      let bestStoreId = null;
+      let bestEffectivePrice = Infinity;
+      let bestRegularPrice = Infinity;
+      let isPromo = false;
+
+      const selectedStores = state.stores.length > 0 ? state.stores : SMOLENSK_STORES.map(s => s.id);
+
+      selectedStores.forEach(storeId => {
+        const offer = product.prices[storeId];
+        if (!offer) return;
+        const effective = offer.promoPrice !== null && offer.promoPrice !== undefined ? offer.promoPrice : offer.price;
+        if (effective < bestEffectivePrice) {
+          bestEffectivePrice = effective;
+          bestRegularPrice = offer.price;
+          bestStoreId = storeId;
+          isPromo = offer.promoPrice !== null && offer.promoPrice < offer.price;
+        }
+      });
+
+      const storeObj = SMOLENSK_STORES.find(s => s.id === bestStoreId) || SMOLENSK_STORES[0];
+      const discountPct = isPromo ? Math.round((1 - bestEffectivePrice / bestRegularPrice) * 100) : 0;
+
+      return {
+        productId,
+        name: product.name,
+        category: product.category,
+        unit: product.unit,
+        packSize: product.packSize,
+        storeId: bestStoreId,
+        storeName: storeObj.name,
+        storeObj,
+        effectivePrice: bestEffectivePrice,
+        regularPrice: bestRegularPrice,
+        isPromo,
+        discountPct
+      };
+    }
+
+    function estimateRecipeCostForPortions(recipe, portionsCount) {
+      let total = 0;
+      recipe.ingredients.forEach(ing => {
+        const offer = getBestOfferForProduct(ing.id);
+        if (!offer) return;
+        const unitPrice = offer.effectivePrice / offer.packSize;
+        total += unitPrice * ing.amount * portionsCount;
+      });
+      return Math.round(total);
+    }
+
+    /* ============================================================================
+       8. ГЕНЕРАТОР НЕДЕЛЬНОГО МЕНЮ И КОРЗИНЫ ПОКУПОК
+       ============================================================================ */
+    function generateWeeklyMenu() {
+      const filtered = getFilteredRecipes();
+      const likedPool = filtered.filter(r => state.likedDishes.includes(r.id));
+      const candidatePool = likedPool.length >= 6 ? likedPool : filtered;
+
+      const daysNames = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+      const daysShort = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+      const { userK, familyK } = getPortionBreakdown();
+
+      // Определяем, вписываемся ли в бюджет; если бюджет жёсткий — приоритизируем более бюджетные блюда
+      const sortCandidates = (list, portions) => {
+        const shuffled = [...list].sort(() => Math.random() - 0.5);
+        // Слегка сортируем по стоимости, если бюджет экономный
+        if (state.budget <= getDynamicMinBudget() * 1.25) {
+          return shuffled.sort((a, b) => estimateRecipeCostForPortions(a, portions) - estimateRecipeCostForPortions(b, portions));
+        }
+        return shuffled;
+      };
+
+      const menu = [];
+      const usedCounts = {};
+
+      const pickDish = (mealType, portions) => {
+        let pool = candidatePool.filter(r => r.mealType === mealType);
+        if (pool.length === 0) pool = RECIPES_DB.filter(r => r.mealType === mealType && r.diets.includes(state.diet));
+        if (pool.length === 0) pool = RECIPES_DB.filter(r => r.mealType === mealType);
+
+        const sorted = sortCandidates(pool, portions);
+        // Выбираем блюдо с минимальным числом повторов на неделе
+        sorted.sort((a, b) => (usedCounts[a.id] || 0) - (usedCounts[b.id] || 0));
+        const chosen = sorted[0];
+        usedCounts[chosen.id] = (usedCounts[chosen.id] || 0) + 1;
+        return chosen;
+      };
+
+      for (let d = 0; d < 7; d++) {
+        const daySlots = [];
+        const mealConfigs = [
+          { type: 'breakfast', label: 'Завтрак', self: state.meals.selfBreakfast, family: state.meals.familyBreakfast },
+          { type: 'lunch', label: 'Обед', self: state.meals.selfLunch, family: state.meals.familyLunch },
+          { type: 'dinner', label: 'Ужин', self: state.meals.selfDinner, family: state.meals.familyDinner }
+        ];
+
+        mealConfigs.forEach(cfg => {
+          if (!cfg.self && !cfg.family) return;
+          const isFamily = cfg.family;
+          const portions = isFamily ? familyK : userK;
+          const audienceLabel = isFamily
+            ? `Вся семья (${portions.toFixed(1)} порц.)`
+            : `Только ты (${portions.toFixed(1)} порц.)`;
+
+          const recipe = pickDish(cfg.type, portions);
+          daySlots.push({
+            slotId: `${d}_${cfg.type}`,
+            mealType: cfg.type,
+            mealLabel: cfg.label,
+            isFamily,
+            portions,
+            audienceLabel,
+            recipeId: recipe.id
+          });
+        });
+
+        menu.push({
+          dayIndex: d,
+          dayName: daysNames[d],
+          dayShort: daysShort[d],
+          slots: daySlots
+        });
+      }
+
+      state.weeklyMenu = menu;
+      state.selectedDay = 0;
+    }
+
+    function swapDishInMenu(dayIndex, slotId) {
+      const day = state.weeklyMenu[dayIndex];
+      const slot = day.slots.find(s => s.slotId === slotId);
+      if (!slot) return;
+
+      const filtered = getFilteredRecipes().filter(r => r.mealType === slot.mealType && r.id !== slot.recipeId);
+      const liked = filtered.filter(r => state.likedDishes.includes(r.id));
+      const pool = liked.length > 0 ? liked : (filtered.length > 0 ? filtered : RECIPES_DB.filter(r => r.mealType === slot.mealType && r.id !== slot.recipeId));
+
+      if (pool.length > 0) {
+        const nextRecipe = pool[Math.floor(Math.random() * pool.length)];
+        slot.recipeId = nextRecipe.id;
+        showToast(`Заменено на: ${nextRecipe.name}`);
+        render();
+      }
+    }
+
+    function calculateShoppingCart() {
+      const totals = {}; // productId -> totalAmount
+
+      state.weeklyMenu.forEach(day => {
+        day.slots.forEach(slot => {
+          const recipe = RECIPES_DB.find(r => r.id === slot.recipeId);
+          if (!recipe) return;
+          recipe.ingredients.forEach(ing => {
+            if (!totals[ing.id]) totals[ing.id] = 0;
+            totals[ing.id] += ing.amount * slot.portions;
+          });
+        });
+      });
+
+      const items = [];
+      let totalCost = 0;
+      let totalRegularCost = 0;
+
+      Object.keys(totals).forEach(productId => {
+        const neededAmount = Math.ceil(totals[productId]);
+        const offer = getBestOfferForProduct(productId);
+        if (!offer) return;
+
+        const packsCount = Math.max(1, Math.ceil(neededAmount / offer.packSize));
+        const itemCost = packsCount * offer.effectivePrice;
+        const itemRegularCost = packsCount * offer.regularPrice;
+
+        totalCost += itemCost;
+        totalRegularCost += itemRegularCost;
+
+        items.push({
+          ...offer,
+          neededAmount,
+          packsCount,
+          itemCost,
+          itemRegularCost
+        });
+      });
+
+      return {
+        items,
+        totalCost,
+        totalRegularCost,
+        totalSavings: Math.max(0, totalRegularCost - totalCost)
+      };
+    }
+
+    /* ============================================================================
+       9. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ UI
+       ============================================================================ */
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function openJsonModal() {
+      document.getElementById('jsonModal').classList.add('open');
+    }
+
+    function closeJsonModal() {
+      document.getElementById('jsonModal').classList.remove('open');
+    }
+
+    function handleJsonFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.getElementById('jsonInputArea').value = e.target.result;
+      };
+      reader.readAsText(file);
+    }
+
+    function applyCustomJson() {
+      const raw = document.getElementById('jsonInputArea').value.trim();
+      if (!raw) {
+        showToast('Вставьте JSON-данные или выберите файл');
+        return;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        let updatedCount = 0;
+        Object.keys(parsed).forEach(prodId => {
+          if (SMOLENSK_PRICES_DB[prodId]) {
+            const storeMap = parsed[prodId].prices || parsed[prodId];
+            Object.keys(storeMap).forEach(storeId => {
+              if (SMOLENSK_PRICES_DB[prodId].prices[storeId]) {
+                SMOLENSK_PRICES_DB[prodId].prices[storeId] = {
+                  price: Number(storeMap[storeId].price) || SMOLENSK_PRICES_DB[prodId].prices[storeId].price,
+                  promoPrice: storeMap[storeId].promoPrice !== undefined ? storeMap[storeId].promoPrice : null
+                };
+                updatedCount++;
+              }
+            });
+          }
+        });
+        closeJsonModal();
+        showToast(`Обновлено позиций в прайсе: ${updatedCount}`);
+        render();
+      } catch (err) {
+        showToast('Ошибка формата JSON. Проверьте синтаксис.');
+      }
+    }
+
+    function resetDefaultPrices() {
+      SMOLENSK_PRICES_DB = JSON.parse(JSON.stringify(DEFAULT_SMOLENSK_PRICES));
+      closeJsonModal();
+      showToast('Восстановлен базовый прайс Смоленска');
+      render();
+    }
+
+    function copyShoppingList() {
+      const cart = calculateShoppingCart();
+      const { totalPeople, familyK } = getPortionBreakdown();
+      let text = `🛒 Список покупок на неделю (Смоленск)\nСемья: ${totalPeople} чел. (${familyK} порц.)\nИтого: ${cart.totalCost.toLocaleString('ru-RU')} ₽ (выгода по акциям: ${cart.totalSavings.toLocaleString('ru-RU')} ₽)\n\n`;
+
+      const byStore = {};
+      cart.items.forEach(item => {
+        if (!byStore[item.storeName]) byStore[item.storeName] = [];
+        byStore[item.storeName].push(item);
+      });
+
+      Object.keys(byStore).forEach(store => {
+        text += `📍 ${store}:\n`;
+        byStore[store].forEach(it => {
+          const promoTxt = it.isPromo ? ` [АКЦИЯ -${it.discountPct}%]` : '';
+          text += `• ${it.name} — ${it.packsCount} уп. (${it.neededAmount} ${it.unit}) — ${it.itemCost} ₽${promoTxt}\n`;
+        });
+        text += '\n';
+      });
+
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Список покупок скопирован в буфер обмена!');
+    }
+
+    /* ============================================================================
+       10. НАВИГАЦИЯ ПО ШАГАМ КВИЗА И ОБРАБОТЧИКИ
+       ============================================================================ */
+    function prevStep() {
+      if (state.step > 1) {
+        state.step--;
+        render();
+      }
+    }
+
+    function nextStep() {
+      if (state.step === 1 && state.stores.length === 0) {
+        showToast('Выберите хотя бы один магазин в Смоленске');
+        return;
+      }
+      if (state.step === 4 && getActiveMealTypes().length === 0) {
+        showToast('Отметьте хотя бы один приём пищи');
+        return;
+      }
+      if (state.step === 8 && state.appliances.length === 0) {
+        showToast('Выберите хотя бы один прибор на кухне');
+        return;
+      }
+      if (state.step === 4) {
+        // При переходе к бюджету корректируем бюджет, если он ниже нового динамического минимума
+        const dynMin = getDynamicMinBudget();
+        if (state.budget < dynMin) state.budget = dynMin + 1000;
+      }
+      if (state.step === 8) {
+        // Очищаем вкусовую карту от блюд, которые перестали проходить новые фильтры
+        const validIds = new Set(getFilteredRecipes().map(r => r.id));
+        state.likedDishes = state.likedDishes.filter(id => validIds.has(id));
+        state.dislikedDishes = state.dislikedDishes.filter(id => validIds.has(id));
+      }
+      if (state.step === 9) {
+        const minLikes = getMinLikesRequired();
+        const availableCount = getFilteredRecipes().length;
+        const effectiveMin = Math.min(minLikes, Math.max(3, availableCount));
+        if (state.likedDishes.length < effectiveMin) {
+          showToast(`Выберите ещё ${effectiveMin - state.likedDishes.length} блюд во вкусовой карте`);
+          return;
+        }
+        generateWeeklyMenu();
+        state.step = 10;
+        render();
+        return;
+      }
+
+      if (state.step < 9) {
+        state.step++;
+        render();
+      }
+    }
+
+    function toggleStore(id) {
+      const idx = state.stores.indexOf(id);
+      if (idx >= 0) state.stores.splice(idx, 1);
+      else state.stores.push(id);
+      render();
+    }
+
+    function changeAdults(delta) {
+      state.adults = Math.max(1, Math.min(10, state.adults + delta));
+      render();
+    }
+
+    function toggleHasChildren() {
+      state.hasChildren = !state.hasChildren;
+      if (state.hasChildren && state.children.length === 0) {
+        state.children.push({ id: Date.now(), age: 4 });
+      }
+      render();
+    }
+
+    function addChild() {
+      if (state.children.length >= 6) return;
+      state.children.push({ id: Date.now(), age: 6 });
+      render();
+    }
+
+    function removeChild(id) {
+      state.children = state.children.filter(c => c.id !== id);
+      if (state.children.length === 0) state.hasChildren = false;
+      render();
+    }
+
+    function changeChildAge(id, delta) {
+      const child = state.children.find(c => c.id === id);
+      if (!child) return;
+      child.age = Math.max(1, Math.min(17, child.age + delta));
+      render();
+    }
+
+    function toggleMeal(key) {
+      state.meals[key] = !state.meals[key];
+      render();
+    }
+
+    function toggleArrayItem(arrName, id) {
+      const idx = state[arrName].indexOf(id);
+      if (idx >= 0) state[arrName].splice(idx, 1);
+      else state[arrName].push(id);
+      render();
+    }
+
+    function swipeCurrentDish(direction) {
+      const deck = getRemainingSwipeDeck();
+      if (deck.length === 0) return;
+      const current = deck[0];
+
+      const cardEl = document.getElementById('activeDishCard');
+      if (cardEl) {
+        cardEl.style.transform = direction === 'right'
+          ? 'translateX(130%) rotate(18deg)'
+          : 'translateX(-130%) rotate(-18deg)';
+        cardEl.style.opacity = '0';
+      }
+
+      setTimeout(() => {
+        if (direction === 'right') {
+          state.likedDishes.push(current.id);
+        } else {
+          state.dislikedDishes.push(current.id);
+        }
+        render();
+      }, 190);
+    }
+
+    function resetTasteMap() {
+      state.likedDishes = [];
+      state.dislikedDishes = [];
+      render();
+    }
+
+    /* ============================================================================
+       11. РЕНДЕРИНГ ШАГОВ КВИЗА И ЭКРАНА РЕЗУЛЬТАТОВ
+       ============================================================================ */
+    function renderHeader(stepLabel) {
+      const progressHtml = Array.from({ length: 9 }, (_, i) => {
+        const active = i < state.step ? 'active' : '';
+        return `<div class="segment ${active}"></div>`;
+      }).join('');
+
+      return `
+        <div class="quiz-header">
+          <div class="header-top">
+            <button class="btn-back ${state.step === 1 ? 'hidden' : ''}" onclick="prevStep()" aria-label="Назад">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1D1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="brand-title">Лёгкость <span class="city-pill">📍 Смоленск</span></div>
+            <div style="width:36px;"></div>
+          </div>
+          ${state.step <= 9 ? `
+            <div class="progress-segments">${progressHtml}</div>
+            <div class="step-meta">
+              <span>${stepLabel}</span>
+              <span>Шаг ${state.step} из 9</span>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function renderStep1() {
+      const cards = SMOLENSK_STORES.map(st => {
+        const sel = state.stores.includes(st.id) ? 'selected' : '';
+        return `
+          <div class="select-card ${sel}" onclick="toggleStore('${st.id}')">
+            <div class="check-badge">✓</div>
+            <div class="store-logo" style="background:${st.bg};color:${st.color};">${st.short}</div>
+            <div class="card-label">${st.name}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        ${renderHeader('Магазины Смоленска')}
+        <div class="step-body">
+          <h1 class="step-title">Где покупаешь продукты?</h1>
+          <p class="step-subtitle">Соберём меню из того, что есть на полках в Смоленске, и найдём лучшие акции. Можно отметить несколько.</p>
+          <div class="grid-3">${cards}</div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep2() {
+      const { familyK, totalPeople } = getPortionBreakdown();
+      const childrenHtml = state.hasChildren ? `
+        <div class="white-box">
+          ${state.children.map((c, idx) => {
+            const k = getChildCoefficient(c.age);
+            return `
+              <div class="child-item">
+                <div>
+                  <div style="font-weight:700;font-size:14px;">Ребёнок ${idx + 1}</div>
+                  <div style="font-size:11px;color:var(--text-muted);">Коэф. порции: ×${k.toFixed(2)}</div>
+                </div>
+                <div style="display:flex;align-items:center;">
+                  <div class="age-stepper">
+                    <button class="mini-btn" onclick="changeChildAge(${c.id}, -1)">−</button>
+                    <span style="font-weight:700;font-size:13px;color:var(--accent-dark);min-width:54px;text-align:center;">${c.age} ${c.age === 1 ? 'год' : (c.age < 5 ? 'года' : 'лет')}</span>
+                    <button class="mini-btn" onclick="changeChildAge(${c.id}, 1)">+</button>
+                  </div>
+                  <button class="remove-child-btn" onclick="removeChild(${c.id})">−</button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+          <button class="add-child-btn" onclick="addChild()">
+            <span class="add-child-icon">+</span> Добавить ребёнка
+          </button>
+        </div>
+      ` : '';
+
+      return `
+        ${renderHeader('Кто ест')}
+        <div class="step-body">
+          <h1 class="step-title">Кто будет кушать?</h1>
+          <p class="step-subtitle">Учитываем возраст каждого члена семьи для точной граммовки и объёма закупки.</p>
+
+          <div class="white-box" style="text-align:center;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;color:var(--text-muted);">ВЗРОСЛЫЕ</div>
+            <div class="counter-row">
+              <button class="round-btn" onclick="changeAdults(-1)">−</button>
+              <div class="big-number">${state.adults}</div>
+              <button class="round-btn" onclick="changeAdults(1)">+</button>
+            </div>
+            <div style="font-size:12px;color:var(--text-muted);">Влияет на размер порций и объём закупки</div>
+          </div>
+
+          <div class="white-box">
+            <div class="toggle-row" onclick="toggleHasChildren()">
+              <div>
+                <div style="font-weight:700;font-size:15px;">Есть дети?</div>
+                <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">Порции меньше с учётом возраста, меню мягче</div>
+              </div>
+              <div class="switch ${state.hasChildren ? 'on' : ''}">
+                <div class="switch-knob"></div>
+              </div>
+            </div>
+          </div>
+
+          ${childrenHtml}
+
+          <div class="info-banner">
+            <div style="font-size:20px;">🍽️</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;">Готовим на ${totalPeople} чел. (≈ ${familyK} станд. порции)</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">
+                Возрастные коэффициенты автоматически пересчитают вес продуктов в корзине без переплат.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep3() {
+      return `
+        ${renderHeader('Пол')}
+        <div class="step-body">
+          <h1 class="step-title">Какой у тебя пол?</h1>
+          <p class="step-subtitle">Нужен для уточнения базовой дневной нормы калорий и размера твоей порции.</p>
+          <div class="grid-2" style="margin-top:24px;">
+            <div class="select-card ${state.gender === 'female' ? 'selected' : ''}" style="padding:26px 14px;" onclick="state.gender='female';render();">
+              <div class="check-badge">✓</div>
+              <div style="font-size:48px;margin-bottom:10px;">👩</div>
+              <div class="card-label" style="font-size:16px;">Женский</div>
+              <div class="card-sub">Коэффициент порции ×0.9</div>
+            </div>
+            <div class="select-card ${state.gender === 'male' ? 'selected' : ''}" style="padding:26px 14px;" onclick="state.gender='male';render();">
+              <div class="check-badge">✓</div>
+              <div style="font-size:48px;margin-bottom:10px;">👨</div>
+              <div class="card-label" style="font-size:16px;">Мужской</div>
+              <div class="card-sub">Коэффициент порции ×1.1</div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep4() {
+      const m = state.meals;
+      const renderRow = (key, emoji, title) => `
+        <div class="meal-row" onclick="toggleMeal('${key}')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:20px;">${emoji}</span>
+            <span style="font-weight:700;font-size:15px;">${title}</span>
+          </div>
+          <div class="checkbox-box ${m[key] ? 'checked' : ''}">${m[key] ? '✓' : ''}</div>
+        </div>
+      `;
+
+      return `
+        ${renderHeader('Приёмы пищи')}
+        <div class="step-body">
+          <h1 class="step-title">Сколько приёмов пищи в день?</h1>
+          <p class="step-subtitle">Отметь, что готовишь только себе, а что — на всю семью.</p>
+
+          <div class="section-caption">ТЫ (ЛИЧНЫЕ ПОРЦИИ)</div>
+          <div class="white-box" style="padding:4px 16px;">
+            ${renderRow('selfBreakfast', '☕', 'Завтрак')}
+            ${renderRow('selfLunch', '🍜', 'Обед')}
+            ${renderRow('selfDinner', '🍽️', 'Ужин')}
+          </div>
+
+          <div class="section-caption">СЕМЬЯ (ОБЩИЕ ПРИЁМЫ)</div>
+          <div class="white-box" style="padding:4px 16px;">
+            ${renderRow('familyBreakfast', '☕', 'Общие завтраки')}
+            ${renderRow('familyLunch', '🍜', 'Общие обеды')}
+            ${renderRow('familyDinner', '🍽️', 'Общие ужины')}
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep5() {
+      const { totalPeople } = getPortionBreakdown();
+      const minBudget = getDynamicMinBudget();
+      const comfortableBudget = Math.round((minBudget * 1.25) / 250) * 250;
+      const perPerson = Math.round(state.budget / Math.max(1, totalPeople));
+
+      let tierTitle = 'Экономно';
+      let tierDesc = 'Простые базовые блюда, курица и крупы по акциям';
+      let isGood = state.budget >= comfortableBudget;
+
+      if (state.budget >= comfortableBudget * 1.45) {
+        tierTitle = 'Комфортно с запасом';
+        tierDesc = 'Форель, индейка, свежие овощи и любые любимые рецепты';
+      } else if (state.budget >= comfortableBudget) {
+        tierTitle = 'Оптимальный баланс';
+        tierDesc = 'Разнообразное мясо, рыба, молочные продукты и овощи';
+      }
+
+      return `
+        ${renderHeader('Бюджет')}
+        <div class="step-body">
+          <h1 class="step-title">Бюджет на неделю</h1>
+          <p class="step-subtitle">Не будем предлагать то, что в него не влезет. Ориентируемся на цены Смоленска.</p>
+
+          <div class="budget-display">
+            ${state.editingBudget ? `
+              <input type="number" id="budgetManualInput" class="budget-input-inline" value="${state.budget}"
+                onblur="finishBudgetEdit(this.value)"
+                onkeydown="if(event.key==='Enter') finishBudgetEdit(this.value)" />
+            ` : `
+              <div class="budget-value-wrap" onclick="startBudgetEdit()">
+                <span class="budget-amount">${state.budget.toLocaleString('ru-RU')} ₽</span>
+                <span style="font-size:18px;color:var(--text-muted);">✏️</span>
+              </div>
+            `}
+            <div style="font-size:13px;color:var(--text-muted);margin-top:8px;">
+              ≈ ${perPerson.toLocaleString('ru-RU')} ₽ на человека в неделю
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-bottom:8px;">
+            <div style="font-weight:800;font-size:17px;">${tierTitle}</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">${tierDesc}</div>
+          </div>
+
+          <input type="range" class="custom-slider" min="${minBudget}" max="30000" step="250" value="${state.budget}"
+            oninput="state.budget=Number(this.value);render();" />
+
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);">
+            <div>
+              <div style="font-weight:700;color:var(--text-main);">${minBudget.toLocaleString('ru-RU')} ₽</div>
+              <div style="font-size:11px;">минимум на ${totalPeople} чел.</div>
+            </div>
+            <div style="font-weight:700;color:var(--text-main);">30 000 ₽+</div>
+          </div>
+
+          <div class="budget-status-card ${isGood ? 'good' : 'tight'}">
+            <div style="font-size:20px;">${isGood ? '✅' : '💡'}</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;">${isGood ? 'Хороший бюджет' : 'Эконом-режим'}</div>
+              <div style="font-size:12px;margin-top:2px;line-height:1.4;">
+                На ${totalPeople} чел. комфортно от ${comfortableBudget.toLocaleString('ru-RU')} ₽ в неделю. Будем искать максимальные скидки в выбранных сетях.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function startBudgetEdit() {
+      state.editingBudget = true;
+      render();
+      setTimeout(() => {
+        const inp = document.getElementById('budgetManualInput');
+        if (inp) inp.focus();
+      }, 20);
+    }
+
+    function finishBudgetEdit(val) {
+      const num = parseInt(val, 10);
+      if (!isNaN(num) && num >= 1500 && num <= 100000) {
+        state.budget = num;
+      }
+      state.editingBudget = false;
+      render();
+    }
+
+    function renderStep6() {
+      const diets = [
+        { id: 'omnivore', title: 'Всеядный', sub: 'Ем всё', emoji: '🥩' },
+        { id: 'pescatarian', title: 'Пескетарианец', sub: 'Рыба и морепродукты', emoji: '🐟' },
+        { id: 'vegetarian', title: 'Вегетарианец', sub: 'Без мяса и рыбы', emoji: '🥗' },
+        { id: 'vegan', title: 'Веган', sub: 'Только растительное', emoji: '🌱' }
+      ];
+
+      return `
+        ${renderHeader('Тип питания')}
+        <div class="step-body">
+          <h1 class="step-title">Какой у тебя тип питания?</h1>
+          <p class="step-subtitle">Это поможет заранее отфильтровать рецепты перед составлением вкусовой карты.</p>
+          <div class="grid-2" style="margin-top:20px;">
+            ${diets.map(d => `
+              <div class="select-card ${state.diet === d.id ? 'selected' : ''}" style="padding:24px 12px;" onclick="state.diet='${d.id}';render();">
+                <div class="check-badge">✓</div>
+                <div style="font-size:40px;margin-bottom:10px;">${d.emoji}</div>
+                <div class="card-label" style="font-size:15px;">${d.title}</div>
+                <div class="card-sub">${d.sub}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep7() {
+      const renderGrid = (list, arrName) => list.map(item => {
+        const sel = state[arrName].includes(item.id) ? 'selected' : '';
+        return `
+          <div class="select-card ${sel}" style="padding:10px 4px;" onclick="toggleArrayItem('${arrName}', '${item.id}')">
+            <div class="check-badge">✓</div>
+            <div class="card-emoji" style="font-size:22px;">${item.emoji}</div>
+            <div class="card-label" style="font-size:11px;">${item.label}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        ${renderHeader('Ограничения')}
+        <div class="step-body">
+          <h1 class="step-title">Аллергии и ограничения</h1>
+          <p class="step-subtitle">Отметь всё, что не должно попасть в меню и вкусовую карту.</p>
+
+          <div class="section-caption">АЛЛЕРГИИ</div>
+          <div class="grid-4">${renderGrid(ALLERGIES_LIST, 'allergies')}</div>
+
+          <div class="section-caption" style="margin-top:18px;">НЕ ЛЮБЛЮ</div>
+          <div class="grid-4">${renderGrid(DISLIKES_LIST, 'dislikes')}</div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Далее &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep8() {
+      const cards = APPLIANCES_LIST.map(ap => {
+        const sel = state.appliances.includes(ap.id) ? 'selected' : '';
+        return `
+          <div class="select-card ${sel}" style="padding:18px 10px;" onclick="toggleArrayItem('appliances', '${ap.id}')">
+            <div class="check-badge">✓</div>
+            <div class="card-emoji" style="font-size:30px;">${ap.emoji}</div>
+            <div class="card-label" style="font-size:14px;">${ap.label}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        ${renderHeader('Кухня')}
+        <div class="step-body">
+          <h1 class="step-title">Что есть на кухне?</h1>
+          <p class="step-subtitle">Отметь всё, чем реально готовишь. Рецепты подберём только под это.</p>
+          <div class="grid-2">${cards}</div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" onclick="nextStep()">Перейти к вкусам &gt;</button>
+        </div>
+      `;
+    }
+
+    function renderStep9() {
+      const filteredTotal = getFilteredRecipes();
+      const deck = getRemainingSwipeDeck();
+      const minLikes = Math.min(getMinLikesRequired(), Math.max(3, filteredTotal.length));
+      const likedCount = state.likedDishes.length;
+      const seenCount = likedCount + state.dislikedDishes.length;
+      const isReady = likedCount >= minLikes || deck.length === 0;
+
+      const mealNames = { breakfast: 'Завтрак', lunch: 'Обед', dinner: 'Ужин' };
+
+      let arenaHtml = '';
+      if (deck.length === 0) {
+        arenaHtml = `
+          <div class="taste-ready-box">
+            <div style="font-size:48px;margin-bottom:10px;">🎉</div>
+            <div style="font-size:20px;font-weight:800;margin-bottom:6px;">Вкусовая карта готова!</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.45;margin-bottom:14px;">
+              Понравилось <b>${likedCount}</b> блюд из ${filteredTotal.length} подходящих — этого достаточно для расчёта меню и корзины в Смоленске.
+            </div>
+            <button onclick="resetTasteMap()" style="background:none;border:none;color:var(--accent-dark);font-weight:700;text-decoration:underline;cursor:pointer;font-size:13px;">
+              Пройти заново
+            </button>
+          </div>
+        `;
+      } else {
+        const topCard = deck[0];
+        const nextCard = deck[1];
+        const estCost = estimateRecipeCostForPortions(topCard, 1);
+
+        arenaHtml = `
+          <div class="swipe-arena">
+            ${nextCard ? `
+              <div class="dish-card" style="transform:scale(0.95) translateY(10px);opacity:0.65;z-index:1;">
+                <div class="dish-visual"><div class="dish-emoji-big">${nextCard.emoji}</div></div>
+                <div><div style="font-weight:800;font-size:18px;">${nextCard.name}</div></div>
+              </div>
+            ` : ''}
+            <div class="dish-card" id="activeDishCard" style="z-index:2;">
+              <div class="swipe-stamp stamp-like" id="stampLike">БУДУ ❤️</div>
+              <div class="swipe-stamp stamp-nope" id="stampNope">НЕТ ✕</div>
+              <div class="dish-visual">
+                <span class="meal-tag">${mealNames[topCard.mealType]}</span>
+                <span class="price-tag">≈ ${estCost} ₽ / порц.</span>
+                <div class="dish-emoji-big">${topCard.emoji}</div>
+              </div>
+              <div>
+                <div style="font-weight:800;font-size:18px;line-height:1.25;margin-bottom:6px;">${topCard.name}</div>
+                <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">
+                  ⏱ ${topCard.time} • 🔥 ${topCard.kcal} ккал • Ингредиенты: ${topCard.ingredients.map(i => SMOLENSK_PRICES_DB[i.id]?.name.split(' ')[0].toLowerCase()).join(', ')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swipe-actions">
+            <button class="swipe-btn nope" onclick="swipeCurrentDish('left')">✕ Не хочу</button>
+            <button class="swipe-btn like" onclick="swipeCurrentDish('right')">❤️ Буду готовить</button>
+          </div>
+        `;
+      }
+
+      return `
+        ${renderHeader('Вкусы')}
+        <div class="step-body">
+          <h1 class="step-title">Что тебе нравится?</h1>
+          <p class="step-subtitle">Свайпни вправо — нравится, влево — нет. Показаны только блюда под твой тип питания и аллергии.</p>
+
+          ${arenaHtml}
+
+          <div style="text-align:center;margin-top:12px;">
+            <div style="font-size:13px;font-weight:700;color:${isReady ? 'var(--green-text)' : 'var(--text-muted)'};">
+              ${isReady
+                ? `✅ Набрано ${likedCount} блюд (минимум ${minLikes}) — можно считать рацион!`
+                : `Понравилось ${likedCount} из ${minLikes} нужных блюд (просмотрено ${seenCount} из ${filteredTotal.length})`}
+            </div>
+            ${likedCount > 0 && deck.length > 0 ? `
+              <button onclick="resetTasteMap()" style="background:none;border:none;color:var(--text-muted);font-size:12px;text-decoration:underline;margin-top:6px;cursor:pointer;">
+                Сбросить выбор
+              </button>
+            ` : ''}
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <button class="btn-primary" ${!isReady ? 'disabled' : ''} onclick="nextStep()">
+            Посчитать рацион &gt;
+          </button>
+        </div>
+      `;
+    }
+
+    /* ============================================================================
+       12. ЭКРАН РЕЗУЛЬТАТОВ: МЕНЮ НА НЕДЕЛЮ + СПИСОК ПОКУПОК В СМОЛЕНСКЕ
+       ============================================================================ */
+    function renderResults() {
+      const cart = calculateShoppingCart();
+      const { totalPeople, familyK } = getPortionBreakdown();
+      const diff = state.budget - cart.totalCost;
+      const withinBudget = diff >= 0;
+
+      const summaryCard = `
+        <div class="white-box" style="background:linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 100%);border:1.5px solid var(--accent-border);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Корзина на неделю • Смоленск</div>
+              <div style="font-size:28px;font-weight:800;color:var(--text-main);margin-top:2px;">
+                ${cart.totalCost.toLocaleString('ru-RU')} ₽
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span style="display:inline-block;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:700;background:${withinBudget ? 'var(--green-bg)' : 'var(--red-bg)'};color:${withinBudget ? 'var(--green-text)' : 'var(--red-text)'};">
+                ${withinBudget ? `В бюджете (−${diff.toLocaleString('ru-RU')} ₽)` : `Выше бюджета (+${Math.abs(diff).toLocaleString('ru-RU')} ₽)`}
+              </span>
+              <div style="font-size:11px;color:var(--green-text);font-weight:700;margin-top:4px;">
+                Выгода по акциям: ${cart.totalSavings.toLocaleString('ru-RU')} ₽
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted);">
+            <span>Семья: <b>${totalPeople} чел.</b> (${familyK} порц.)</span>
+            <button onclick="openJsonModal()" style="background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--accent-dark);border-radius:8px;padding:4px 8px;font-size:11px;font-weight:700;cursor:pointer;">
+              🔄 Обновить JSON цен
+            </button>
+          </div>
+        </div>
+      `;
+
+      let tabContent = '';
+      if (state.resultTab === 'menu') {
+        const currentDayObj = state.weeklyMenu[state.selectedDay] || state.weeklyMenu[0];
+        const daysBar = state.weeklyMenu.map((d, idx) => `
+          <button class="day-pill ${idx === state.selectedDay ? 'active' : ''}" onclick="state.selectedDay=${idx};render();">
+            ${d.dayShort}
+          </button>
+        `).join('');
+
+        const slotsHtml = currentDayObj.slots.map(slot => {
+          const recipe = RECIPES_DB.find(r => r.id === slot.recipeId);
+          if (!recipe) return '';
+          const cost = estimateRecipeCostForPortions(recipe, slot.portions);
+          return `
+            <div class="white-box">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:11px;font-weight:800;text-transform:uppercase;color:var(--accent-dark);background:var(--accent-soft);padding:3px 9px;border-radius:99px;">
+                  ${slot.mealLabel} • ${slot.audienceLabel}
+                </span>
+                <span style="font-size:13px;font-weight:800;">≈ ${cost} ₽</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;">
+                <div style="width:52px;height:52px;border-radius:14px;background:var(--bg-cream);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;">
+                  ${recipe.emoji}
+                </div>
+                <div style="flex:1;">
+                  <div style="font-weight:800;font-size:15px;line-height:1.25;">${recipe.name}</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">
+                    ⏱ ${recipe.time} • 🔥 ${Math.round(recipe.kcal * slot.portions)} ккал на приём
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px solid var(--border-light);">
+                <div style="font-size:11px;color:var(--text-muted);max-width:65%;">
+                  ${recipe.ingredients.map(i => `${SMOLENSK_PRICES_DB[i.id]?.name.split(' ')[0]} ${Math.round(i.amount * slot.portions)}${SMOLENSK_PRICES_DB[i.id]?.unit}`).join(', ')}
+                </div>
+                <button class="swap-btn" onclick="swapDishInMenu(${currentDayObj.dayIndex}, '${slot.slotId}')">
+                  ↻ Заменить
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        tabContent = `
+          <div class="days-scroller">${daysBar}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <h2 style="margin:0;font-size:18px;font-weight:800;">${currentDayObj.dayName}</h2>
+            <button onclick="generateWeeklyMenu();showToast('Собрали новый вариант меню!');render();" style="background:none;border:none;color:var(--accent-dark);font-weight:700;font-size:12px;cursor:pointer;">
+              🎲 Пересобрать неделю
+            </button>
+          </div>
+          ${slotsHtml}
+        `;
+      } else {
+        // Вкладка списка покупок
+        const groups = {};
+        cart.items.forEach(item => {
+          const groupKey = state.shopGroupBy === 'store' ? item.storeName : item.category;
+          if (!groups[groupKey]) groups[groupKey] = { items: [], subtotal: 0, storeObj: item.storeObj };
+          groups[groupKey].items.push(item);
+          groups[groupKey].subtotal += item.itemCost;
+        });
+
+        const groupsHtml = Object.keys(groups).map(gKey => {
+          const grp = groups[gKey];
+          return `
+            <div class="white-box">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border-light);">
+                <div style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;">
+                  ${state.shopGroupBy === 'store' ? `<span style="width:22px;height:22px;border-radius:6px;background:${grp.storeObj.bg};color:${grp.storeObj.color};display:inline-flex;align-items:center;justify-content:center;font-size:11px;">${grp.storeObj.short}</span>` : '📦'}
+                  <span>${gKey}</span>
+                </div>
+                <span style="font-weight:800;font-size:14px;color:var(--accent-dark);">${grp.subtotal.toLocaleString('ru-RU')} ₽</span>
+              </div>
+              ${grp.items.map(it => {
+                const checked = !!state.purchasedItems[it.productId];
+                return `
+                  <div onclick="state.purchasedItems['${it.productId}']=!state.purchasedItems['${it.productId}'];render();"
+                    style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--border-light);cursor:pointer;opacity:${checked ? '0.45' : '1'};">
+                    <div style="display:flex;align-items:flex-start;gap:10px;padding-right:8px;">
+                      <div class="checkbox-box ${checked ? 'checked' : ''}" style="width:20px;height:20px;margin-top:2px;flex-shrink:0;">${checked ? '✓' : ''}</div>
+                      <div>
+                        <div style="font-size:13px;font-weight:700;text-decoration:${checked ? 'line-through' : 'none'};">
+                          ${it.name}
+                          ${it.isPromo ? `<span class="promo-badge">-${it.discountPct}%</span>` : ''}
+                        </div>
+                        <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">
+                          Нужно: ${it.neededAmount} ${it.unit} → <b>${it.packsCount} уп.</b> (по ${it.packSize} ${it.unit})
+                          ${state.shopGroupBy === 'category' ? `• 📍 ${it.storeName}` : ''}
+                        </div>
+                      </div>
+                    </div>
+                    <div style="text-align:right;flex-shrink:0;">
+                      <div style="font-weight:800;font-size:14px;">${it.itemCost} ₽</div>
+                      ${it.isPromo ? `<div style="font-size:11px;color:var(--text-muted);text-decoration:line-through;">${it.itemRegularCost} ₽</div>` : ''}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          `;
+        }).join('');
+
+        tabContent = `
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="display:flex;gap:6px;">
+              <button class="day-pill ${state.shopGroupBy === 'store' ? 'active' : ''}" onclick="state.shopGroupBy='store';render();">По магазинам</button>
+              <button class="day-pill ${state.shopGroupBy === 'category' ? 'active' : ''}" onclick="state.shopGroupBy='category';render();">По отделам</button>
+            </div>
+            <button onclick="copyShoppingList()" style="background:var(--accent-soft);border:1px solid var(--accent-border);color:var(--accent-dark);border-radius:10px;padding:7px 11px;font-size:12px;font-weight:700;cursor:pointer;">
+              📋 Копировать
+            </button>
+          </div>
+          ${groupsHtml}
+        `;
+      }
+
+      return `
+        <div class="quiz-header">
+          <div class="header-top" style="margin-bottom:4px;">
+            <button class="btn-back" onclick="state.step=9;render();" title="Вернуться к настройкам">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1D1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="brand-title">Лёгкость <span class="city-pill">📍 Смоленск</span></div>
+            <button onclick="state.step=1;render();" style="background:none;border:none;font-size:12px;font-weight:700;color:var(--text-muted);cursor:pointer;">Квиз</button>
+          </div>
+        </div>
+        <div class="step-body" style="padding-bottom:32px;">
+          ${summaryCard}
+          <div class="tabs-bar">
+            <button class="tab-btn ${state.resultTab === 'menu' ? 'active' : ''}" onclick="state.resultTab='menu';render();">📅 Меню на 7 дней</button>
+            <button class="tab-btn ${state.resultTab === 'shop' ? 'active' : ''}" onclick="state.resultTab='shop';render();">🛒 Покупки (${cart.items.length})</button>
+          </div>
+          ${tabContent}
+        </div>
+      `;
+    }
+
+    /* ============================================================================
+       13. TOUCH / MOUSE DRAG ОБРАБОТЧИКИ ДЛЯ СВАЙП-КАРТОЧКИ НА ШАГЕ 9
+       ============================================================================ */
+    function bindSwipeGestures() {
+      const card = document.getElementById('activeDishCard');
+      if (!card) return;
+
+      const stampLike = document.getElementById('stampLike');
+      const stampNope = document.getElementById('stampNope');
+
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      const onStart = (clientX) => {
+        startX = clientX;
+        currentX = 0;
+        isDragging = true;
+        card.classList.add('dragging');
+      };
+
+      const onMove = (clientX) => {
+        if (!isDragging) return;
+        currentX = clientX - startX;
+        const rotate = currentX * 0.06;
+        card.style.transform = `translateX(${currentX}px) rotate(${rotate}deg)`;
+
+        if (currentX > 25) {
+          stampLike.style.opacity = Math.min(1, (currentX - 25) / 75);
+          stampNope.style.opacity = 0;
+        } else if (currentX < -25) {
+          stampNope.style.opacity = Math.min(1, (-currentX - 25) / 75);
+          stampLike.style.opacity = 0;
+        } else {
+          stampLike.style.opacity = 0;
+          stampNope.style.opacity = 0;
+        }
+      };
+
+      const onEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        card.classList.remove('dragging');
+
+        if (currentX > 95) {
+          swipeCurrentDish('right');
+        } else if (currentX < -95) {
+          swipeCurrentDish('left');
+        } else {
+          card.style.transform = 'translateX(0) rotate(0deg)';
+          stampLike.style.opacity = 0;
+          stampNope.style.opacity = 0;
+        }
+      };
+
+      card.addEventListener('touchstart', e => onStart(e.touches[0].clientX), { passive: true });
+      card.addEventListener('touchmove', e => onMove(e.touches[0].clientX), { passive: true });
+      card.addEventListener('touchend', onEnd);
+
+      card.addEventListener('mousedown', e => onStart(e.clientX));
+      window.addEventListener('mousemove', e => onMove(e.clientX));
+      window.addEventListener('mouseup', onEnd);
+    }
+
+    /* ============================================================================
+       14. ГЛАВНЫЙ RENDER-ЦИКЛ
+       ============================================================================ */
+    function render() {
+      const app = document.getElementById('app');
+      let html = '';
+
+      switch (state.step) {
+        case 1: html = renderStep1(); break;
+        case 2: html = renderStep2(); break;
+        case 3: html = renderStep3(); break;
+        case 4: html = renderStep4(); break;
+        case 5: html = renderStep5(); break;
+        case 6: html = renderStep6(); break;
+        case 7: html = renderStep7(); break;
+        case 8: html = renderStep8(); break;
+        case 9: html = renderStep9(); break;
+        case 10: html = renderResults(); break;
+      }
+
+      app.innerHTML = html;
+
+      if (state.step === 9) {
+        bindSwipeGestures();
+      }
+    }
+
+    // Инициализация приложения
+    render();
+  </script>
+</body>
+</html>
