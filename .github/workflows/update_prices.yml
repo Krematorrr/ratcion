@@ -24,7 +24,9 @@ jobs:
           python-version: '3.11'
 
       - name: Run Smolensk price parser
-        run: python3 smolensk_price_parser.py
+  env:
+    PRICE_PARSER_PROXY: ${{ secrets.PRICE_PARSER_PROXY }}
+  run: python3 smolensk_price_parser.py
 
       - name: Commit and push updated JSON
         run: |
