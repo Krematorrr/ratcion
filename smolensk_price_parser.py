@@ -101,9 +101,16 @@ class SmolenskPriceCollector:
     3) Fallback-модели на основе актуальных среднерыночных прайсов Смоленска при недоступности эндпоинта
     """
 
-    def __init__(self, lat: float = SMOLENSK_LAT, lon: float = SMOLENSK_LON):
+    def __init__(self, lat: float = SMOLENSK_LAT, lon: float = SMOLENSK_LON, proxy_url: Optional[str] = None):
+        import os
         self.lat = lat
         self.lon = lon
+        self.proxy_url = (
+            proxy_url
+            or os.environ.get("PRICE_PARSER_PROXY")
+            or os.environ.get("HTTPS_PROXY")
+            or os.environ.get("HTTP_PROXY")
+        )
         self.headers = {
             "User-Agent": (
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -119,9 +126,17 @@ class SmolenskPriceCollector:
             req_headers.update(extra_headers)
         req = urllib.request.Request(url, headers=req_headers)
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                if resp.status == 200:
-                    return json.loads(resp.read().decode("utf-8"))
+            if self.proxy_url:
+                opener = urllib.request.build_opener(
+                    urllib.request.ProxyHandler({"http": self.proxy_url, "https": self.proxy_url})
+                )
+                with opener.open(req, timeout=timeout) as resp:
+                    if resp.status == 200:
+                        return json.loads(resp.read().decode("utf-8"))
+            else:
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    if resp.status == 200:
+                        return json.loads(resp.read().decode("utf-8"))
         except Exception:
             return None
         return None
